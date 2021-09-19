@@ -10,6 +10,8 @@ import com.DAO.tecestudioweb.UsuarioDAO;
 import com.DTO.tecestudioweb.UsuarioVO;
 
 import java.util.Map;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 
@@ -42,15 +44,31 @@ public class UsuarioController {
 		
 		}
 	
-	@RequestMapping(value = "eliminar")
-	public Map<String, Boolean> eliminar(String cedula){
-		Map<String, Boolean> respuesta = new HashMap<String, Boolean>();
+	@RequestMapping("/buscar")
+	public Map<Integer, UsuarioVO> buscarUsuario(){
 		
-		boolean result = usuarioService.eliminar(cedula);
+		int contador = 0;
 		
-		respuesta.put("eliminado", result);
+		List<UsuarioVO> listaEncontrados = usuarioService.buscar("103");
 		
-		return respuesta;
-	}
+		Map<Integer , UsuarioVO> listaUsuarios = new HashMap<Integer , UsuarioVO>();
 		
+		if(listaEncontrados.isEmpty()){
+			return null;
+		}else {
+			
+			for (UsuarioVO usuario : listaEncontrados) {
+				
+				listaUsuarios.put(contador, usuario);
+				contador ++;
+			}
+			return listaUsuarios;
+			
+		}
+		
+		}
+	
+	
+	
+
 	}

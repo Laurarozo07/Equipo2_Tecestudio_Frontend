@@ -20,7 +20,7 @@ public class LoginController {
 	public Map<String, Boolean> validarlogin2(String usuario, String password)//recibe esta cadena y convierte en un objeto de tipo cliente
 	{
 	 ArrayList<LoginVO> miusuario = new ArrayList<LoginVO>();//Crea el objeto arryList
-
+	 
 	//pasa la peteción al servicio
 	LoginDAO Dao=new LoginDAO(); //cargamos el objeto y se pasa al DAO y valida el usuario
 	 miusuario= Dao.consultarUsuario(usuario, password);
