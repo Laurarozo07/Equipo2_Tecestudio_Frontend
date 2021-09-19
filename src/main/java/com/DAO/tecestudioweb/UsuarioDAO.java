@@ -77,7 +77,8 @@ public class UsuarioDAO {
 			pstmt.setString(5, password);
 
 			respuestadb = pstmt.executeUpdate();
-
+			
+			conexion.desconectar();
 			if (respuestadb > 0) {
 				guardado = true;
 			}
@@ -149,6 +150,7 @@ public class UsuarioDAO {
 			if (resultado > 0) {
 				eliminado = true;
 			}
+			conexion.desconectar();
 
 		} catch (Exception e) {
 			System.out.println("no se pudo eliminar " + e);
@@ -161,11 +163,10 @@ public class UsuarioDAO {
 
 	public boolean actualizar(String documento,String nombre, String correo, String usuario, String password) {
 		
-		String query = "update usuario set nom_usuario = ?, email_usuario = ? "
-				+ "usuario = ?, password = ? where doc_usuario = ?";
+		String query = "update usuario set nom_usuario = ?, email_usuario = ? usuario = ?, password = ? where doc_usuario = ?";
 		
 		boolean actualizado = false ;
-		int resultado;
+		int resultado = 0;
 		
 		try {
 			Conexion conexion = new Conexion();
@@ -178,6 +179,8 @@ public class UsuarioDAO {
 			pstmt.setString(5, documento);
 		
 		resultado = pstmt.executeUpdate();
+		
+		conexion.desconectar();
 		if(resultado > 0){
 			actualizado = true;
 		}

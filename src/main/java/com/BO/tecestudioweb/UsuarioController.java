@@ -82,7 +82,7 @@ public class UsuarioController {
 	}
 	
 	@RequestMapping("/eliminar")
-	public Map<String, Boolean> eliminar(){
+	public Map<String, Boolean> eliminarUsuario(){
 		boolean eliminado = false;
 		
 		eliminado = usuarioService.eliminar("102");
@@ -91,6 +91,20 @@ public class UsuarioController {
 		return Collections.singletonMap("eliminado", true);
 	}else {
 		return Collections.singletonMap("eliminado", false);
+	}
+	
+	}
+	
+	@RequestMapping("/actualizar")
+	public Map<String, Boolean> actualizarUsuario(){
+		boolean actualizado = false;
+		
+		actualizado = usuarioService.actualizar("103", "sergio gutierrez", "ras@mail.com", "shh", "shh1234");
+		
+	if(actualizado) {
+		return Collections.singletonMap("actualizado", true);
+	}else {
+		return Collections.singletonMap("actualizado", false);
 	}
 	
 	}
