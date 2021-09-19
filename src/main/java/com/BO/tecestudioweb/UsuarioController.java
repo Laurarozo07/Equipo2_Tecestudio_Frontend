@@ -49,7 +49,7 @@ public class UsuarioController {
 		
 		int contador = 0;
 		
-		List<UsuarioVO> listaEncontrados = usuarioService.buscar("103");
+		List<UsuarioVO> listaEncontrados = usuarioService.buscar("1010110102");
 		
 		Map<Integer , UsuarioVO> listaUsuarios = new HashMap<Integer , UsuarioVO>();
 		
@@ -68,7 +68,17 @@ public class UsuarioController {
 		
 		}
 	
-	
-	
-
+	@RequestMapping("/guardar")
+	public Map<String, Boolean> guardarUsuario(){
+		boolean guardado = false;
+		
+		guardado = usuarioService.guardar("102", "bibi", "bibi@mail.com", "bibi@mail.com", "bibi1234");
+	if(guardado) {
+		return Collections.singletonMap("guardado", true);
+	}else {
+		return Collections.singletonMap("guardado", false);
 	}
+	
+	}
+	
+}

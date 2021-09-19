@@ -59,11 +59,40 @@ Conexion conn = new Conexion();
 		return listaUsuarios;
 	}
 	
+	//--------------- metodo guardar -----------------------------------------
+	
+	public boolean guardar(String documento , String nombre,String email, String usuario,
+			String password  ){
+		
+		String query = "insert into usuario(doc_usuario, nom_usuario, email_usuario, usuario, password ) value (?,?,?,?,?)";
+		boolean guardado = false;
+		
+		try {
+			Conexion conexion = new Conexion();
+			Connection conn = conexion.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, documento);
+			pstmt.setString(2, nombre);
+			pstmt.setString(3, email);
+			pstmt.setString(4, usuario);
+			pstmt.setString(5, password);
+			
+			pstmt.executeUpdate();
+			
+			guardado = true;
+			
+		} catch (Exception e) {
+			System.out.println("no se pudo proceder "+e);
+		}
+		
+	return guardado;
+	}
+	
 	//-----------------metodo buscar--------------------------------------------
 	public List<UsuarioVO> buscar(String cedula){
-		String query = "select * from usuario where doc_usuario = '1010110102'";
+		String query = "select * from usuario where doc_usuario = '"+cedula+"'";
 		List<UsuarioVO> listaUsuarios = new ArrayList<UsuarioVO>();
-		Conexion conn = new Conexion();
+		Conexion conexion = new Conexion();
 		UsuarioVO usuarioTemp;
 		
 		try {
@@ -92,12 +121,12 @@ Conexion conn = new Conexion();
 			
 		} catch (Exception e) {
 			try {
-				JOptionPane.showMessageDialog(null, "no se pudo proceder ");
+				System.out.print("no se pudo procesar el query "+e);
 				
 				conn.desconectar();
 				
 			} catch (Exception e2) {
-				JOptionPane.showMessageDialog(null, "no se pudo desconectar la db");
+				System.out.print("no se pudo conectar con la base de datos "+e);
 			}
 		}
 		
