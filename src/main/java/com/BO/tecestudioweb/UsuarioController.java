@@ -81,4 +81,20 @@ public class UsuarioController {
 	
 	}
 	
+	@RequestMapping("/eliminar")
+	public Map<String, Boolean> eliminar(){
+		boolean eliminado = false;
+		
+		eliminado = usuarioService.eliminar("102");
+		
+	if(eliminado) {
+		return Collections.singletonMap("eliminado", true);
+	}else {
+		return Collections.singletonMap("eliminado", false);
+	}
+	
+	}
+	
+
+	
 }
