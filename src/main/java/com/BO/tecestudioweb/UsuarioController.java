@@ -99,7 +99,7 @@ public class UsuarioController {
 	public Map<String, Boolean> actualizarUsuario(){
 		boolean actualizado = false;
 		
-		actualizado = usuarioService.actualizar("103", "sergio gutierrez", "ras@mail.com", "shh", "shh1234");
+		actualizado = usuarioService.actualizar("103", "sergio homez", "correoe@mail.com", "shh", "shh");
 		
 	if(actualizado) {
 		return Collections.singletonMap("actualizado", true);

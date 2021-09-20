@@ -77,7 +77,7 @@ public class UsuarioDAO {
 			pstmt.setString(5, password);
 
 			respuestadb = pstmt.executeUpdate();
-			
+
 			conexion.desconectar();
 			if (respuestadb > 0) {
 				guardado = true;
@@ -161,35 +161,36 @@ public class UsuarioDAO {
 
 	// ------------------------ metodo actualizar -------------------------
 
-	public boolean actualizar(String documento,String nombre, String correo, String usuario, String password) {
-		
-		String query = "update usuario set nom_usuario = ?, email_usuario = ? usuario = ?, password = ? where doc_usuario = ?";
-		
-		boolean actualizado = false ;
+	public boolean actualizar(String documento, String nombre, String correo, String usuario, String password) {
+
+		String query = "UPDATE  usuario SET nom_usuario = '"+nombre+"', email_usuario = '"+correo+"',\r\n"
+				+ " usuario = '"+usuario+"', password = '"+password+"' WHERE doc_usuario = '"+documento+"';";
+
+		boolean actualizado = false;
 		int resultado = 0;
-		
+
 		try {
 			Conexion conexion = new Conexion();
 			Connection conn = conexion.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(query);
-			pstmt.setString(1, nombre);
-			pstmt.setString(2, correo);
-			pstmt.setString(3, usuario);
-			pstmt.setString(4, password);
-			pstmt.setString(5, documento);
-		
-		resultado = pstmt.executeUpdate();
-		
-		conexion.desconectar();
-		if(resultado > 0){
-			actualizado = true;
-		}
-			
+			//pstmt.setString(1, nombre);
+			// pstmt.setString(2, correo);
+			// pstmt.setString(3, usuario);
+			// pstmt.setString(4, password);
+			// pstmt.setString(5, documento);
+
+			resultado = pstmt.executeUpdate();
+
+			conexion.desconectar();
+			if (resultado > 0) {
+				actualizado = true;
+			}
+
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-		
-		return true;
+
+		return actualizado;
 	}
 
 }
