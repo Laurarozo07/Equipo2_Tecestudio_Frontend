@@ -14,12 +14,24 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
-
+/**
+ * este Clase se encarga de realizar el CRUD para la tabla usuario
+ * 
+ * @since 2020
+ * @version 1.0.0
+ * 
+ *
+ */
 @RestController
 public class UsuarioController {
 	
-	UsuarioDAO usuarioService = new UsuarioDAO();
-
+	private UsuarioDAO usuarioService = new UsuarioDAO();
+	
+	/**
+	 * 
+	 * @return {@code HashMap<Integer, UsuarioVO>} con todos los usuarios en la 
+	 * base de datos
+	 */
 	@RequestMapping("/todos")
 	public Map<Integer, UsuarioVO> traerUsuarios(){
 		
@@ -44,6 +56,11 @@ public class UsuarioController {
 		
 		}
 	
+	/**
+	 * @param numero de documento a consultar
+	 * @return {@code Map<Integer, UsuarioVO>) con el o los usuarios que encuentre 
+	 * con el numero de documento se le pasa como parametro
+	 */
 	@RequestMapping("/buscar")
 	public Map<Integer, UsuarioVO> buscarUsuario(){
 		
@@ -68,6 +85,11 @@ public class UsuarioController {
 		
 		}
 	
+	/**
+	 * se encarga de guardar al usuario que recibe como parametro
+	 * @return {@code Map<String, Boolean>} clave: "guardado" valor: {@code true} 
+	 * si logro guardar al usuario y {@code false} si no pudo guardarlo
+	 */
 	@RequestMapping("/guardar")
 	public Map<String, Boolean> guardarUsuario(){
 		boolean guardado = false;
@@ -81,6 +103,12 @@ public class UsuarioController {
 	
 	}
 	
+	/**
+	 * se encarga de eliminar al usario
+	 * @param {@code String} con el numero de documento
+	 * @return {@code Map<String, Boolean>} clave: "eliminado" valor: {@code true} 
+	 * si logro eliminar al usuario y {@code false} si no pudo eliminarlo
+	 */
 	@RequestMapping("/eliminar")
 	public Map<String, Boolean> eliminarUsuario(){
 		boolean eliminado = false;
@@ -95,6 +123,15 @@ public class UsuarioController {
 	
 	}
 	
+	/**
+	 * se encarga de actualizar actualizar los datos de nombre, correo, usuario y 
+	 * contraseña de un usuario en especifico
+	 * @param {@code String} con el documento al que se va a actualizar, 
+	 * {@code String} con el nombre nuevo, {@code String} con el correo nuevo, 
+	 * {@code String} con el usuario nuevo , {@code String} con el correo nuevo
+	 * @return {@code Map<String, Boolean>} clave: "eliminado" valor: {@code true} 
+	 * si logro eliminar al usuario y {@code false} si no pudo eliminarlo
+	 */
 	@RequestMapping("/actualizar")
 	public Map<String, Boolean> actualizarUsuario(){
 		boolean actualizado = false;

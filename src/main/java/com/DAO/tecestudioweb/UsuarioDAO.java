@@ -13,7 +13,7 @@ import java.sql.*;
 
 public class UsuarioDAO {
 
-	Conexion conn = new Conexion();
+	private Conexion conn = new Conexion();
 
 	// ---------------- metodo buscar todos ---------------------------
 	public List<UsuarioVO> traerTodos() {

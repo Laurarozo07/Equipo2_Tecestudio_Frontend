@@ -23,7 +23,7 @@ src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <td><label>Clave:</label></td>
 <td><input Id="password" type="password" value=""></td>
 </tr>
-<tr><td><input type="button" value="Enviaru"
+<tr><td><input type="button" value="Enviar"
 id="btn_Enviaru"></td></tr>
 <!-- <tr><td><button id="btnEnviar" class="w3-
 button">Enviar</button></td></tr>-->
