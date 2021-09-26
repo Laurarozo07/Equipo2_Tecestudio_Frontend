@@ -27,34 +27,59 @@ public class UsuarioController {
 	
 	private UsuarioDAO usuarioService = new UsuarioDAO();
 	
-	/**
-	 * 
-	 * @return {@code HashMap<Integer, UsuarioVO>} con todos los usuarios en la 
-	 * base de datos
-	 */
+	@RequestMapping("/test")
+	public Map<String, String> testMetodo(String text) {
+		
+		return Collections.singletonMap("respuesta", "controller "+text);
+	}
+	
+	//--------------todos--------------------------------------------
+	
 	@RequestMapping("/todos")
-	public Map<Integer, UsuarioVO> traerUsuarios(){
+	public Map<String, List<UsuarioVO>> traerUsuarios(){
 		
 		int contador = 0;
 		
 		List<UsuarioVO> listaEncontrados = usuarioService.traerTodos();
 		
-		Map<Integer , UsuarioVO> listaUsuarios = new HashMap<Integer , UsuarioVO>();
-		
 		if(listaEncontrados.isEmpty()){
 			return null;
 		}else {
 			
-			for (UsuarioVO usuario : listaEncontrados) {
-				
-				listaUsuarios.put(contador, usuario);
-				contador ++;
-			}
-			return listaUsuarios;
+			return Collections.singletonMap("respuesta", listaEncontrados);
 			
 		}
 		
 		}
+	
+	/**
+	 * 
+	 * @return {@code HashMap<Integer, UsuarioVO>} con todos los usuarios en la 
+	 * base de datos
+	 */
+//	@RequestMapping("/todos")
+//	public Map<Integer, UsuarioVO> traerUsuarios(){
+//		
+//		int contador = 0;
+//		
+//		List<UsuarioVO> listaEncontrados = usuarioService.traerTodos();
+//		
+//		Map<Integer , UsuarioVO> listaUsuarios = new HashMap<Integer , UsuarioVO>();
+//		
+//		if(listaEncontrados.isEmpty()){
+//			return null;
+//		}else {
+//			
+//			for (UsuarioVO usuario : listaEncontrados) {
+//				
+//				listaUsuarios.put(contador, usuario);
+//				contador ++;
+//			}
+//			return listaUsuarios;
+//			
+//		}
+//		
+//		}
 	
 	/**
 	 * @param numero de documento a consultar
@@ -62,28 +87,22 @@ public class UsuarioController {
 	 * con el numero de documento se le pasa como parametro
 	 */
 	@RequestMapping("/buscar")
-	public Map<Integer, UsuarioVO> buscarUsuario(){
+	public Map<String, List<UsuarioVO>> buscarUsuario(String doc_usuario){
 		
 		int contador = 0;
 		
-		List<UsuarioVO> listaEncontrados = usuarioService.buscar("1010110102");
-		
-		Map<Integer , UsuarioVO> listaUsuarios = new HashMap<Integer , UsuarioVO>();
+		List<UsuarioVO> listaEncontrados = usuarioService.buscar(doc_usuario);
 		
 		if(listaEncontrados.isEmpty()){
 			return null;
 		}else {
 			
-			for (UsuarioVO usuario : listaEncontrados) {
-				
-				listaUsuarios.put(contador, usuario);
-				contador ++;
+			return Collections.singletonMap("respuesta", listaEncontrados);
 			}
-			return listaUsuarios;
 			
 		}
 		
-		}
+		
 	
 	/**
 	 * se encarga de guardar al usuario que recibe como parametro

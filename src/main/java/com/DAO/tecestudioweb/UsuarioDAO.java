@@ -91,8 +91,8 @@ public class UsuarioDAO {
 	}
 
 	// -----------------metodo buscar--------------------------------------------
-	public List<UsuarioVO> buscar(String cedula) {
-		String query = "select * from usuario where doc_usuario = '" + cedula + "'";
+	public List<UsuarioVO> buscar(String doc_usuario) {
+		String query = "select * from usuario where doc_usuario = '" + doc_usuario + "'";
 		List<UsuarioVO> listaUsuarios = new ArrayList<UsuarioVO>();
 		Conexion conexion = new Conexion();
 		UsuarioVO usuarioTemp;
