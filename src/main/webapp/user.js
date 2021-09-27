@@ -73,12 +73,16 @@ $(document).ready(function () {
 	});
 
 	$("#agregarU").click(function () {
+		var datosCorrectos = false;
 		let nombre = $("#inp_nombre").val();
 		let correo = $("#inp_email").val();
 		let elusuario = $("#inp_usuario").val();
 		let laclave = $("#inp_password").val();
 		let doc = $("#inp_documento").val();
 
+		if(nombre == "" || correo == "" || elusuario == "" || laclave == "" || doc == ""){
+			alert("por favor llenar todos los campos");
+		}else{
 		$.post("http://localhost:8080/guardar", {
 			nom_usuario: nombre,
 			email_usuario: correo, usuario: elusuario, password: laclave, doc_usuario: doc
@@ -90,9 +94,10 @@ $(document).ready(function () {
 				$("#mensaje").html("el usuario fue guardado");
 			} else {
 				$("#mensaje").html("el usuario no se logro guardar");
-			}
+			};
 
 		});
+	};
 	});
 
 
