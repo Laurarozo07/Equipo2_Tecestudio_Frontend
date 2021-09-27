@@ -13,7 +13,7 @@ if(data.existe==true)
 {
 alert("Bienvenido "+elUsuario);
 window.location.href =
-"user.jsp";
+"menu.jsp";
 }
 else
 {

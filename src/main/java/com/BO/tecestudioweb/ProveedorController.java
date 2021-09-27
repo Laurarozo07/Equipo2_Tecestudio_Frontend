@@ -20,26 +20,21 @@ public class ProveedorController {
 
 	private ProveedorDAO proveedorService = new ProveedorDAO();
 
-
 	@RequestMapping("/proveedorTodos")
-	public Map<Integer, ProveedorVO> traerProveedores() {
+	public Map<String, List<ProveedorVO>> traerProveedores() {
 		int contador = 0;
 		List<ProveedorVO> listaEncontrados;
-		Map<Integer, ProveedorVO> listaProveedores = new HashMap<Integer, ProveedorVO>();
 		listaEncontrados = proveedorService.traerTodos();
 
 		if (listaEncontrados.isEmpty()) {
 
-			listaProveedores = null;
+			return null;
 		} else {
 
-			for (ProveedorVO proveedor : listaEncontrados) {
-				listaProveedores.put(contador, proveedor);
-				contador++;
-			}
+			return Collections.singletonMap("respuesta", listaEncontrados);
 		}
 
-		return listaProveedores;
+	
 	}
 	
 	@GetMapping("/proveedorGuardar")
@@ -66,19 +61,14 @@ public class ProveedorController {
 	
 
 	@RequestMapping("/proveedorBuscar")
-	public Map<Integer, ProveedorVO> buscarProveedor() {
+	public Map<String, List<ProveedorVO>> buscarProveedor() {
 		List<ProveedorVO> encontrados = new ArrayList<ProveedorVO>();
-		Map<Integer, ProveedorVO> proveedores = new HashMap<Integer, ProveedorVO>();
+		
 		int contador = 0;
 		
 		encontrados = proveedorService.buscar(9008315524l);
 		
-		for (ProveedorVO proveedor : encontrados) {
-			proveedores.put(contador, proveedor);
-			contador++;
-		}
-		return proveedores;
-
+		return Collections.singletonMap("respuesta", encontrados);
 	}
 	
 	@GetMapping("/proveedorEliminar")
@@ -92,7 +82,6 @@ public class ProveedorController {
 			return Collections.singletonMap("eliminado", false);
 					
 		}
-		
 		
 	}
 	@GetMapping("/proveedorActualizar")
@@ -112,7 +101,6 @@ public class ProveedorController {
 		}else {
 			return Collections.singletonMap("actualizado", false);
 		}
-		
 		
 	}
 	
