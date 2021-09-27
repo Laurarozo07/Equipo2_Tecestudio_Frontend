@@ -38,9 +38,9 @@ $("#listarU").click(function(){
 });
 
 $("#buscarU").click(function(){
-	let doc = document.getElementById("inp_documento").value;
+	let doc = $("#inp_documento").val();
 
-	$.post("http://localhost:8080/buscar",{doc_usuario: doc }, function(data, status){
+	$.get("http://localhost:8080/buscar",{doc_usuario: doc }, function(data, status){
 		const lista = data.respuesta;
 
 		if(lista == null){
@@ -61,28 +61,32 @@ $("#buscarU").click(function(){
 			$("#mensaje").html(salida);
 
 		}
-		
 
-		 
+
+
 	});
 });
 
 $("#agregarU").click(function(){
-	let elid = $("#id").val();
-	let nombre = $("#nom").val();
-	let correo = $("#email").val();
-	let elusuario = $("#usuario").val();
-	let laclave = $("#password").val ();
-	let doc = $("#docu").val();
+	let nombre = $("#inp_nombre").val();
+	let correo = $("#inp_email").val();
+	let elusuario = $("#inp_usuario").val();
+	let laclave = $("#inp_password").val ();
+	let doc = $("#inp_documento").val();
+
+	alert(nombre, correo, elusuario, laclave, doc);
 	
-	$.post("http://localhost:3036/guardar",{id_usuario:elid,nom_usuario: nombre,
+	$.post("http://localhost:8080/guardar",{ nom_usuario: nombre,
 	email_usuario: correo, usuario:elusuario, password: laclave, doc_usuario:doc},function(data, status){
-		if (data==true){
-			$("#mensaje").html("el usuario fue creado.");
-			
+		
+		var respuesta = data.guardado;
+
+		if(respuesta){
+			$("#mensaje").html("el usuario fue guardado");
 		}else{
-			$("#mensaje").html("<b style='color:red;'>No se pudo crear, ya existe !!!</br>")
+			$("#mensaje").html("el usuario no se logro guardar");
 		}
+
 	});
 });
 
@@ -107,9 +111,11 @@ $("#actualizarU").click(function(){
 
 
 $("#eliminarU").click(function(){
-	let elid = $("#id").val();
-	$.post("http://localhost:3036/borrar",{id_usuario: elid},function(data,status){
-		if (data == true){
+	let elid = $("#inp_documento").val();
+	$.post("http://localhost:8080/eliminar",{doc_usuario: elid},function(data,status){
+		
+		var respuesta = data.eliminado
+		if (respuesta == true){
 			$("#mensaje").html("El usuario fue eliminado");
 		}else{
 			$("#mensaje").html("<b style= 'color:red;'>No se pudo eliminar, No existe !!!</b>");

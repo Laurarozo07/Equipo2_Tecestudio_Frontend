@@ -60,9 +60,9 @@ public class UsuarioDAO {
 
 	// --------------- metodo guardar -----------------------------------------
 
-	public boolean guardar(String documento, String nombre, String email, String usuario, String password) {
+	public boolean guardar(String nom_usuario, String email_usuario, String usuario, String password,String doc_usuario){
 
-		String query = "insert into usuario(doc_usuario, nom_usuario, email_usuario, usuario, password ) value (?,?,?,?,?)";
+		String query = "insert into usuario(nom_usuario, email_usuario, usuario, password,doc_usuario) value (?,?,?,?,?)";
 		boolean guardado = false;
 		int respuestadb = 0;
 
@@ -70,11 +70,11 @@ public class UsuarioDAO {
 			Conexion conexion = new Conexion();
 			Connection conn = conexion.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(query);
-			pstmt.setString(1, documento);
-			pstmt.setString(2, nombre);
-			pstmt.setString(3, email);
-			pstmt.setString(4, usuario);
-			pstmt.setString(5, password);
+			pstmt.setString(1, nom_usuario);
+			pstmt.setString(2, email_usuario);
+			pstmt.setString(3, usuario);
+			pstmt.setString(4, password);
+			pstmt.setString(5, doc_usuario);
 
 			respuestadb = pstmt.executeUpdate();
 

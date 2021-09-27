@@ -110,10 +110,12 @@ public class UsuarioController {
 	 * si logro guardar al usuario y {@code false} si no pudo guardarlo
 	 */
 	@RequestMapping("/guardar")
-	public Map<String, Boolean> guardarUsuario(){
+	public Map<String, Boolean> guardarUsuario(String nom_usuario, 
+			String email_usuario, String usuario, String password, String doc_usuario  ){
 		boolean guardado = false;
 		
-		guardado = usuarioService.guardar("102", "bibi", "bibi@mail.com", "bibi@mail.com", "bibi1234");
+		guardado = usuarioService.guardar(nom_usuario, email_usuario,
+				usuario, password, doc_usuario);
 	if(guardado) {
 		return Collections.singletonMap("guardado", true);
 	}else {
@@ -129,10 +131,10 @@ public class UsuarioController {
 	 * si logro eliminar al usuario y {@code false} si no pudo eliminarlo
 	 */
 	@RequestMapping("/eliminar")
-	public Map<String, Boolean> eliminarUsuario(){
+	public Map<String, Boolean> eliminarUsuario(String doc_usuario){
 		boolean eliminado = false;
 		
-		eliminado = usuarioService.eliminar("102");
+		eliminado = usuarioService.eliminar(doc_usuario);
 		
 	if(eliminado) {
 		return Collections.singletonMap("eliminado", true);
