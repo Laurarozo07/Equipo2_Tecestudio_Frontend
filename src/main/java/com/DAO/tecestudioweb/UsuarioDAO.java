@@ -161,10 +161,9 @@ public class UsuarioDAO {
 
 	// ------------------------ metodo actualizar -------------------------
 
-	public boolean actualizar(String documento, String nombre, String correo, String usuario, String password) {
+	public boolean actualizar(String doc_usuario, String nom_usuario, String email_usuario, String usuario, String password) {
 
-		String query = "UPDATE  usuario SET nom_usuario = '"+nombre+"', email_usuario = '"+correo+"',\r\n"
-				+ " usuario = '"+usuario+"', password = '"+password+"' WHERE doc_usuario = '"+documento+"';";
+		String query = "UPDATE usuario SET nom_usuario = ?, email_usuario = ?, usuario = ?, password = ? WHERE doc_usuario = ?";
 
 		boolean actualizado = false;
 		int resultado = 0;
@@ -173,11 +172,11 @@ public class UsuarioDAO {
 			Conexion conexion = new Conexion();
 			Connection conn = conexion.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(query);
-			//pstmt.setString(1, nombre);
-			// pstmt.setString(2, correo);
-			// pstmt.setString(3, usuario);
-			// pstmt.setString(4, password);
-			// pstmt.setString(5, documento);
+			pstmt.setString(1, nom_usuario);
+			pstmt.setString(2, email_usuario);
+			pstmt.setString(3, usuario);
+			pstmt.setString(4, password);
+			pstmt.setString(5, doc_usuario);
 
 			resultado = pstmt.executeUpdate();
 
@@ -187,7 +186,7 @@ public class UsuarioDAO {
 			}
 
 		} catch (Exception e) {
-			// TODO: handle exception
+			System.out.println("no se pudo actualizar "+ e);
 		}
 
 		return actualizado;

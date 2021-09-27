@@ -92,19 +92,22 @@ $("#agregarU").click(function(){
 
 
 $("#actualizarU").click(function(){
-	let elid = $("#id").val();
-	let nombre = $("#nom").val();
-	let correo = $("#email").val();
-	let elusuario = $("#usuario").val();
-	let laclave = $("#password").val ();
-	let doc = $("#docu").val();
-	$.post("http://localhost:3036/actualizar",{id_usuario:elid,nom_usuario: nombre,
-	email_usuario: correo, usuario:elusuario, password: laclave, doc_usuario:doc},function(data, status){
-		if (data == true){
+	
+	let nombre = $("#inp_nombre").val();
+	let correo = $("#inp_email").val();
+	let elusuario = $("#inp_usuario").val();
+	let laclave = $("#inp_password").val ();
+	let doc = $("#inp_documento").val();
+	
+	$.post("http://localhost:8080/actualizar",{doc_usuario: doc, nom_usuario: nombre,
+	email_usuario: correo, usuario: elusuario, password: laclave},function(data, status){
+		
+		var respuesta = data.actualizado;
+		if (respuesta){
 			$("#mensaje").html("el usuario fue actualizado");
 		}else{
 			$("#mensaje").html("<b style='color:red;'>No se puedo actualizar, NO existe !!!!</b>");
-			
+
 		}
 	});
 });

@@ -154,10 +154,11 @@ public class UsuarioController {
 	 * si logro eliminar al usuario y {@code false} si no pudo eliminarlo
 	 */
 	@RequestMapping("/actualizar")
-	public Map<String, Boolean> actualizarUsuario(){
+	public Map<String, Boolean> actualizarUsuario(String doc_usuario, String nom_usuario,String email_usuario, String usuario, String password){
 		boolean actualizado = false;
 		
-		actualizado = usuarioService.actualizar("103", "sergio homez", "correoe@mail.com", "shh", "shh");
+		actualizado = usuarioService.actualizar(doc_usuario, nom_usuario, 
+				email_usuario, usuario, password);
 		
 	if(actualizado) {
 		return Collections.singletonMap("actualizado", true);

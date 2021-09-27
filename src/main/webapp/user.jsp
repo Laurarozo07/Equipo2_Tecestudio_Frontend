@@ -33,11 +33,10 @@ src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         
         <input id="buscarU" type="button" value="Consultar">
         <input id="agregarU" type="button" value="Crear">
-        <input type="button" value="Actualizar">
+        <input id="actualizarU" type="button" value="Actualizar">
         <input id="eliminarU" type="button" value="Borrar">
         <input id="listarU" type="button" value="todos">
         <input id="btn_test" type="button" value="test"  > <!-- test2 -->
-        
         
     </form>
     <div id="mensaje">
