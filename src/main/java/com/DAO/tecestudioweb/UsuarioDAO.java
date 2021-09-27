@@ -92,14 +92,16 @@ public class UsuarioDAO {
 
 	// -----------------metodo buscar--------------------------------------------
 	public List<UsuarioVO> buscar(String doc_usuario) {
-		String query = "select * from usuario where doc_usuario = '" + doc_usuario + "'";
+		String query = "select * from usuario where doc_usuario = ?";
 		List<UsuarioVO> listaUsuarios = new ArrayList<UsuarioVO>();
 		Conexion conexion = new Conexion();
 		UsuarioVO usuarioTemp;
 
 		try {
-			PreparedStatement consulta = conn.getConnection().prepareStatement(query);
-			ResultSet result = consulta.executeQuery();
+			Connection conn = conexion.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, doc_usuario);
+			ResultSet result = pstmt.executeQuery();
 
 			if (result == null) {
 
@@ -116,7 +118,7 @@ public class UsuarioDAO {
 
 					listaUsuarios.add(usuarioTemp);
 				}
-				conn.desconectar();
+				conexion.desconectar();;
 			}
 
 		} catch (Exception e) {

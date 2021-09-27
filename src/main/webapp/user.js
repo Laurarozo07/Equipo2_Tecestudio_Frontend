@@ -20,13 +20,12 @@ $("#listarU").click(function(){
 		}else{
 		
 			let salida = "<table>";
-			salida = salida + "<tr><th>NOMBRE</th><th>EMAIL</th><th>USUARIO</th><th>CLAVE</th><th>DOCUM</th></tr>";
+			salida = salida + "<tr><th>NOMBRE</th><th>EMAIL</th><th>USUARIO</th><th>DOCUMENTO</th></tr>";
 			for (let i=0; i<lista.length;i++){
 				salida = salida + "<tr>";
 				salida = salida + "<td>" + lista[i].nom_usuario+ "</td>";
 				salida = salida + "<td>" + lista[i].email_usuario+ "</td>";
 				salida = salida + "<td>" + lista[i].usuario+ "</td>";
-				salida = salida + "<td>" + lista[i].password + "</td>";
 				salida = salida + "<td>" + lista[i].doc_usuario+ "</td>";
 				salida = salida + "</tr>";
 			}
@@ -47,15 +46,21 @@ $("#buscarU").click(function(){
 			$("#mensaje").html("<b style='color:red;'>no se encontro al usuario !!!</br>")
 		}else{
 			let salida = "<table>";
-			salida = salida + "<tr><th>NOMBRE</th><th>EMAIL</th><th>USUARIO</th><th>CLAVE</th><th>DOCUM</th></tr>";
+			salida = salida + "<tr><th>NOMBRE</th><th>EMAIL</th><th>USUARIO</th><th>DOCUMENTO</th></tr>";
 			for (let i=0; i<lista.length;i++){
 				salida = salida + "<tr>";
-				salida = salida + "<td>" + lista[i].nom_usuario+ "</td>";
-				salida = salida + "<td>" + lista[i].email_usuario+ "</td>";
-				salida = salida + "<td>" + lista[i].usuario+ "</td>";
-				salida = salida + "<td>" + lista[i].password + "</td>";
-				salida = salida + "<td>" + lista[i].doc_usuario+ "</td>";
+				salida = salida + "<td>" + lista[i].nom_usuario + "</td>";
+				salida = salida + "<td>" + lista[i].email_usuario + "</td>";
+				salida = salida + "<td>" + lista[i].usuario + "</td>";
+				salida = salida + "<td>" + lista[i].doc_usuario + "</td>";
 				salida = salida + "</tr>";
+				
+				$("#inp_nombre").val(lista[i].nom_usuario);
+				$("#inp_email").val(lista[i].email_usuario);
+				$("#inp_usuario").val(lista[i].usuario);
+				$("#inp_password").val(lista[i].password);
+				$("#inp_documento").val(lista[i].doc_usuario);
+
 			}
 			salida = salida +"</table>";
 			$("#mensaje").html(salida);
