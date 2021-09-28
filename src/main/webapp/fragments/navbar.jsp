@@ -10,4 +10,4 @@
 				<a>Reportes</a>
 			</div>
 		</nav>
-	</section>
+</section>
