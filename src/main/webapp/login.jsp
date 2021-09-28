@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
- pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+ pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>logIn</title>
 <script
 src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -23,7 +23,7 @@ src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <td><label>Clave:</label></td>
 <td><input Id="password" type="password" value=""></td>
 </tr>
-<tr><td><input type="button" value="Enviaru"
+<tr><td><input type="button" value="Enviar"
 id="btn_Enviaru"></td></tr>
 <!-- <tr><td><button id="btnEnviar" class="w3-
 button">Enviar</button></td></tr>-->
