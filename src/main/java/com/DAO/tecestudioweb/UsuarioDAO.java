@@ -13,7 +13,7 @@ import java.sql.*;
 
 public class UsuarioDAO {
 
-	Conexion conn = new Conexion();
+	private Conexion conn = new Conexion();
 
 	// ---------------- metodo buscar todos ---------------------------
 	public List<UsuarioVO> traerTodos() {
@@ -60,9 +60,9 @@ public class UsuarioDAO {
 
 	// --------------- metodo guardar -----------------------------------------
 
-	public boolean guardar(String documento, String nombre, String email, String usuario, String password) {
+	public boolean guardar(String nom_usuario, String email_usuario, String usuario, String password,String doc_usuario){
 
-		String query = "insert into usuario(doc_usuario, nom_usuario, email_usuario, usuario, password ) value (?,?,?,?,?)";
+		String query = "insert into usuario(nom_usuario, email_usuario, usuario, password,doc_usuario) value (?,?,?,?,?)";
 		boolean guardado = false;
 		int respuestadb = 0;
 
@@ -70,11 +70,11 @@ public class UsuarioDAO {
 			Conexion conexion = new Conexion();
 			Connection conn = conexion.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(query);
-			pstmt.setString(1, documento);
-			pstmt.setString(2, nombre);
-			pstmt.setString(3, email);
-			pstmt.setString(4, usuario);
-			pstmt.setString(5, password);
+			pstmt.setString(1, nom_usuario);
+			pstmt.setString(2, email_usuario);
+			pstmt.setString(3, usuario);
+			pstmt.setString(4, password);
+			pstmt.setString(5, doc_usuario);
 
 			respuestadb = pstmt.executeUpdate();
 
@@ -91,15 +91,17 @@ public class UsuarioDAO {
 	}
 
 	// -----------------metodo buscar--------------------------------------------
-	public List<UsuarioVO> buscar(String cedula) {
-		String query = "select * from usuario where doc_usuario = '" + cedula + "'";
+	public List<UsuarioVO> buscar(String doc_usuario) {
+		String query = "select * from usuario where doc_usuario = ?";
 		List<UsuarioVO> listaUsuarios = new ArrayList<UsuarioVO>();
 		Conexion conexion = new Conexion();
 		UsuarioVO usuarioTemp;
 
 		try {
-			PreparedStatement consulta = conn.getConnection().prepareStatement(query);
-			ResultSet result = consulta.executeQuery();
+			Connection conn = conexion.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, doc_usuario);
+			ResultSet result = pstmt.executeQuery();
 
 			if (result == null) {
 
@@ -116,7 +118,7 @@ public class UsuarioDAO {
 
 					listaUsuarios.add(usuarioTemp);
 				}
-				conn.desconectar();
+				conexion.desconectar();;
 			}
 
 		} catch (Exception e) {
@@ -161,10 +163,9 @@ public class UsuarioDAO {
 
 	// ------------------------ metodo actualizar -------------------------
 
-	public boolean actualizar(String documento, String nombre, String correo, String usuario, String password) {
+	public boolean actualizar(String doc_usuario, String nom_usuario, String email_usuario, String usuario, String password) {
 
-		String query = "UPDATE  usuario SET nom_usuario = '"+nombre+"', email_usuario = '"+correo+"',\r\n"
-				+ " usuario = '"+usuario+"', password = '"+password+"' WHERE doc_usuario = '"+documento+"';";
+		String query = "UPDATE usuario SET nom_usuario = ?, email_usuario = ?, usuario = ?, password = ? WHERE doc_usuario = ?";
 
 		boolean actualizado = false;
 		int resultado = 0;
@@ -173,11 +174,11 @@ public class UsuarioDAO {
 			Conexion conexion = new Conexion();
 			Connection conn = conexion.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(query);
-			//pstmt.setString(1, nombre);
-			// pstmt.setString(2, correo);
-			// pstmt.setString(3, usuario);
-			// pstmt.setString(4, password);
-			// pstmt.setString(5, documento);
+			pstmt.setString(1, nom_usuario);
+			pstmt.setString(2, email_usuario);
+			pstmt.setString(3, usuario);
+			pstmt.setString(4, password);
+			pstmt.setString(5, doc_usuario);
 
 			resultado = pstmt.executeUpdate();
 
@@ -187,7 +188,7 @@ public class UsuarioDAO {
 			}
 
 		} catch (Exception e) {
-			// TODO: handle exception
+			System.out.println("no se pudo actualizar "+ e);
 		}
 
 		return actualizado;
