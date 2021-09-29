@@ -67,8 +67,6 @@ $(document).ready(function () {
 
 			}
 
-
-
 		});
 	});
 
@@ -80,24 +78,24 @@ $(document).ready(function () {
 		let laclave = $("#inp_password").val();
 		let doc = $("#inp_documento").val();
 
-		if(nombre == "" || correo == "" || elusuario == "" || laclave == "" || doc == ""){
+		if (nombre == "" || correo == "" || elusuario == "" || laclave == "" || doc == "") {
 			alert("por favor llenar todos los campos");
-		}else{
-		$.post("http://localhost:8080/guardar", {
-			nom_usuario: nombre,
-			email_usuario: correo, usuario: elusuario, password: laclave, doc_usuario: doc
-		}, function (data, status) {
+		} else {
+			$.post("http://localhost:8080/guardar", {
+				nom_usuario: nombre,
+				email_usuario: correo, usuario: elusuario, password: laclave, doc_usuario: doc
+			}, function (data, status) {
 
-			var respuesta = data.guardado;
+				var respuesta = data.guardado;
 
-			if (respuesta) {
-				$("#mensaje").html("el usuario fue guardado");
-			} else {
-				$("#mensaje").html("el usuario no se logro guardar");
-			};
+				if (respuesta) {
+					$("#mensaje").html("el usuario fue guardado");
+				} else {
+					$("#mensaje").html("el usuario no se logro guardar");
+				};
 
-		});
-	};
+			});
+		};
 	});
 
 
@@ -109,19 +107,25 @@ $(document).ready(function () {
 		let laclave = $("#inp_password").val();
 		let doc = $("#inp_documento").val();
 
-		$.post("http://localhost:8080/actualizar", {
-			doc_usuario: doc, nom_usuario: nombre,
-			email_usuario: correo, usuario: elusuario, password: laclave
-		}, function (data, status) {
+		if (nombre == "" || correo == "" || elusuario == "" || laclave == "" || doc == "") {
+			alert("Datos faltantes");
+		} else {
+			$.post("http://localhost:8080/actualizar", {
+				doc_usuario: doc, nom_usuario: nombre,
+				email_usuario: correo, usuario: elusuario, password: laclave
+			}, function (data, status) {
 
-			var respuesta = data.actualizado;
-			if (respuesta) {
-				$("#mensaje").html("el usuario fue actualizado");
-			} else {
-				$("#mensaje").html("<b style='color:red;'>No se puedo actualizar, NO existe !!!!</b>");
+				var respuesta = data.actualizado;
+				if (respuesta) {
+					$("#mensaje").html("el usuario fue actualizado");
+				} else {
+					$("#mensaje").html("<b style='color:red;'>No se puedo actualizar, NO existe !!!!</b>");
 
-			}
-		});
+				}
+			});
+		};
+
+
 	});
 
 
