@@ -153,7 +153,7 @@ public class ProveedorDAO {
 			return eliminado;
 		}
 		
-	//-------------------- motoda actualizar --------------------------------
+	//-------------------- motodo actualizar --------------------------------
 	public boolean actualizar(ProveedorVO proveedor ){
 		String query = "update proveedor "
 				+ "set nom_proveedor = ?, "

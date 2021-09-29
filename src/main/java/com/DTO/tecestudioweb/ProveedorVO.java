@@ -69,6 +69,14 @@ public class ProveedorVO {
 	public void setTel_proveedor(String tel_proveedor) {
 		this.tel_proveedor = tel_proveedor;
 	}
+
+	@Override
+	public String toString() {
+		return "ProveedorVO [nit_Proveedor=" + nit_Proveedor + ", nom_proveedor=" + nom_proveedor + ", email_proveedor="
+				+ email_proveedor + ", ciudad_proveedor=" + ciudad_proveedor + ", direc_proveedor=" + direc_proveedor
+				+ ", tel_proveedor=" + tel_proveedor + "]";
+	}
+	
 	
 	
 

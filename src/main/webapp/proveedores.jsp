@@ -38,9 +38,10 @@ src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <br/>
         <input id="btn_buscar" type="button" value="Consultar">
         <input id="btn_guardar" type="button" value="Crear">
-        <input type="button" value="Actualizar">
+        <input id="btn_actualizar" type="button" value="Actualizar">
         <input id="btn_eliminar" type="button" value="Borrar">
-        <input id="btn_listar" type="button" value="todos">
+        <input id="btn_listar" type="button" value="Todos">
+        <button type="reset">Limpiar</button>
     </form>
 </section>
 <section>
