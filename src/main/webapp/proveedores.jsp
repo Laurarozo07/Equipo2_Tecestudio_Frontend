@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Proveedores</title>
 <script
 src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
@@ -14,28 +14,32 @@ src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
 <header>
+	<%@ include file="fragments/navbar.jsp"%>
 </header>
 <section>
 <form action="menu.html" method="post">
-        <label for="nit_prov">Nit</label>
-        <input type="text"  name="nit_prov" placeholder="Ingrese su Nit"> 
+        <label for="inp_nit">Nit</label>
+        <input id="inp_nit" type="text"  name="nit_prov" placeholder="Ingrese su Nit"> 
         <br/>
         <label for="nombre">Nombre</label>
-        <input type="text"  name="nombre_prov" placeholder="Ingrese su nombre completo">
+        <input id="inp_nom" type="text"  name="nombre_prov" placeholder="Ingrese su nombre completo">
+        <br/>
+        <label for="inp_email">email</label>
+        <input id="inp_email" type="email" name="email_prov" placeholder="Ingrese su correo">
         <br/>
         <label for="direccion">Direccion</label>
-        <input type="text" name="direccion_prov" placeholder="Ingrese su direccion">
+        <input id="inp_dir" type="text" name="direccion_prov" placeholder="Ingrese su direccion">
         <br/>
         <label for="telefono">Telefono</label>
-        <input type="tel" name="tel_prov" placeholder="Ingrese su telefono">
+        <input id="inp_tel" type="tel" name="tel_prov" placeholder="Ingrese su telefono">
         <br/>
         <label for="ciudad">Ciudad</label>
-        <input type="text" name="ciudad_prov" placeholder="Ingrese su ciudad">
+        <input id="inp_ciud" type="text" name="ciudad_prov" placeholder="Ingrese su ciudad">
         <br/>
-        <input type="button" value="Consultar">
-        <input type="button" value="Crear">
+        <input id="btn_buscar" type="button" value="Consultar">
+        <input id="btn_guardar" type="button" value="Crear">
         <input type="button" value="Actualizar">
-        <input type="button" value="Borrar">
+        <input id="btn_eliminar" type="button" value="Borrar">
         <input id="btn_listar" type="button" value="todos">
     </form>
 </section>
