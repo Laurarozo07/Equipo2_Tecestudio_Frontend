@@ -7,6 +7,10 @@
 <title>clientes</title>
 </head>
 <body>
+<header>
+	<%@ include file="fragments/navbar.jsp"%>
+</header>
+<section>
 <form action="menu.html" method="post">
         <label for="cedula">Cedula</label>
         <input type="text" name="cedula_cliente" placeholder="Ingrese su cedula"> 
@@ -28,7 +32,8 @@
         <input type="button" value="Actualizar">
         <input type="button" value="Borrar">
     </form>
-        
+ </section>
+ <footer></footer>   
     
 
 </body>
