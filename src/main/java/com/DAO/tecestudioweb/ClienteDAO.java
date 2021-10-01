@@ -104,7 +104,7 @@ public class ClienteDAO {
 			conexion.desconectar();
 
 		} catch (Exception e) {
-			System.out.println("no se pudo eliminar " + e);
+			System.out.println("no se pudo eliminar cliente" + e);
 		}
 
 		return eliminado;
@@ -123,9 +123,9 @@ public class ClienteDAO {
 			PreparedStatement pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, doc_cliente);
 			pstmt.setString(2, nom_cliente);
-			pstmt.setString(3, email_cliente);
-			pstmt.setString(4, ape_cliente);
-			pstmt.setString(5, direc_cliente);
+			pstmt.setString(3, ape_cliente);
+			pstmt.setString(4, direc_cliente);
+			pstmt.setString(5, email_cliente);
 			pstmt.setString(6, tel_cliente);
 
 			respuestadb = pstmt.executeUpdate();
@@ -141,17 +141,18 @@ public class ClienteDAO {
 		return guardado;
 	}
 
-	public boolean actualizar(String doc_cliente, String nom_cliente, 
+	public boolean actualizar(long doc_cliente, String nom_cliente, 
 			String ape_cliente, String direc_cliente, String email_cliente,
 			String tel_cliente) {
+		
+		System.out.println(doc_cliente);
 
 		String query = "update cliente "
 				+ "set nom_cliente = ?,"
 				+ "ape_cliente = ?,"
 				+ "direc_cliente = ?,"
 				+ "email_cliente = ?,"
-				+ "tel_cliente = ?"
-				+ "where doc_cliente = ?;";
+				+ "tel_cliente = ? where doc_cliente = ?";
 
 		boolean actualizado = false;
 		int resultado = 0;
@@ -165,7 +166,7 @@ public class ClienteDAO {
 		    pstmt.setString(3, direc_cliente);
 		    pstmt.setString(4, email_cliente);
 		    pstmt.setString(5, tel_cliente);
-		    pstmt.setString(6, doc_cliente);
+		    pstmt.setLong(6, doc_cliente);
 		    
 			resultado = pstmt.executeUpdate();
 

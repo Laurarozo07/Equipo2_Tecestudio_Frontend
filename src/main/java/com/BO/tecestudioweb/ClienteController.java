@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.DAO.tecestudioweb.ClienteDAO;
 import com.DTO.tecestudioweb.ClienteVO;
 
+
 @RestController
 public class ClienteController {
 
@@ -32,10 +33,10 @@ public class ClienteController {
 	}
 	
     @RequestMapping("/clienteBuscar")
-    public Map<String, List<ClienteVO>> buscarCliente(){
+    public Map<String, List<ClienteVO>> buscarCliente(String doc_usuario){
     	
     	
-    	List<ClienteVO> listaEncontrados = clienteService.buscar("106");
+    	List<ClienteVO> listaEncontrados = clienteService.buscar(doc_usuario);
     	
     	if(listaEncontrados.isEmpty()) {
     		return null;
@@ -46,10 +47,13 @@ public class ClienteController {
     }
     
     @RequestMapping("/clienteGuardar")
-    public Map<String, Boolean> guardarCliente(){
+    public Map<String, Boolean> guardarCliente(String nom_cliente, String ape_cliente, 
+			String direc_cliente, String email_cliente, String tel_cliente, 
+			String doc_cliente ){
     	boolean guardado = false;
     	
-    	guardado = clienteService.guardar( "sara", "peréz", "cra 12", "saraPeréz@gmail.com", "3144236759", "1345295768");
+    	guardado = clienteService.guardar( nom_cliente, ape_cliente,direc_cliente ,
+    			email_cliente, tel_cliente, doc_cliente);
     if (guardado) {
     	return Collections.singletonMap("guardado", true);
     }else {
@@ -58,10 +62,10 @@ public class ClienteController {
     }
     
 	@RequestMapping("/clienteEliminar")
-	public Map<String, Boolean> eliminarCliente(){
+	public Map<String, Boolean> eliminarCliente(String doc_cliente ){
 		boolean eliminado = false;
 		
-		eliminado = clienteService.eliminar("106");
+		eliminado = clienteService.eliminar(doc_cliente);
 	if (eliminado) {
 		return Collections.singletonMap("eliminado", true);
 	}else {
@@ -70,13 +74,18 @@ public class ClienteController {
 	}
 	
 	@RequestMapping("/clienteActualizar")
-	public Map<String, Boolean> actualizarCliente(){
+	public Map<String, Boolean> actualizarCliente(String nom_cliente, String ape_cliente, String direc_cliente, String email_cliente, String tel_cliente, String doc_cliente){
 		boolean actualizado = false;
+		long documento = 0;
 		
-		actualizado = clienteService.actualizar("106", "tanjiro", 
-				"kamado", "Yoyogikamizonochō, Shibuya City, Tokyo 151-8557,"
-				, "kamado@mail.com",
-				"3-3379-5511");
+		try {
+			documento = Long.parseLong(doc_cliente);	
+		} catch (Exception e) {
+			System.out.println("no se logro pasar a long "+e);
+		}
+		
+		actualizado = clienteService.actualizar(documento, nom_cliente, 
+				ape_cliente, direc_cliente, email_cliente,tel_cliente);
 		
 	if (actualizado) {
 		return Collections.singletonMap("actualizado", true);

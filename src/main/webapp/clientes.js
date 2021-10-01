@@ -13,7 +13,7 @@ $(document).ready(function () {
 
 	$("#listarC").click(function () {
 
-		$.get(URL_PUERTO + "/clientetodos", function (data, status) {
+		$.get(URL_PUERTO + "/clienteTodos", function (data, status) {
 			const lista = data.respuesta;
 
 			if (lista == null) {
@@ -67,7 +67,7 @@ $(document).ready(function () {
 						$("#inp_apellido").val(lista[i].ape_cliente);
 						$("#inp_direccion").val(lista[i].direc_cliente);
 						$("#inp_email").val(lista[i].email_cliente);
-						$("#inp_telefono").val(lista[i].tel_client);
+						$("#inp_telefono").val(lista[i].tel_cliente);
 						$("#inp_documento").val(lista[i].doc_cliente);
 
 					}
@@ -120,14 +120,15 @@ $(document).ready(function () {
 		let telefono = $("#inp_telefono").val();
 		let documento = $("#inp_documento").val();
 
+
 		if (nombre == "" || apellido == "" || direccion == "" || email == "" || telefono == ""|| documento == "") {
 			alert("Datos faltantes");
 		} else {
 			$.post(URL_PUERTO + "/clienteActualizar", {
-				nom_cliente: nombre,ape_cliente: apellido, direc_cliente: direccion,
-				 email_cliente: email, tel_cliente: telefono, doc_cliente: documento
+				nom_cliente: nombre,ape_cliente: apellido, direc_cliente: direccion, email_cliente:
+				   email, tel_cliente: telefono, doc_cliente: documento
 			}, function (data, status) {
-
+ 
 				var respuesta = data.actualizado;
 				if (respuesta) {
 					$("#mensaje").html("el cliente fue actualizado");
