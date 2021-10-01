@@ -87,16 +87,15 @@ public class ProveedorDAO {
 		}
 	
 	//-------------------- metodo buscar ------------------------------------
-		public List<ProveedorVO> buscar (Long nit){
+		public List<ProveedorVO> buscar (Long nit_Proveedor){
 			ProveedorVO proveedorTemp = null;
 			List<ProveedorVO> proveedores = new ArrayList<ProveedorVO>();
 			String query = "select * from proveedor where nit_proveedor = ?";
 			Conexion conexion = new Conexion();
-			
 			try {
 				Connection conn = conexion.getConnection();
 				PreparedStatement pstmt = conn.prepareStatement(query);
-				pstmt.setLong(1, nit);
+				pstmt.setLong(1, nit_Proveedor);
 				ResultSet result = pstmt.executeQuery();
 				
 				if(result != null) {
@@ -154,7 +153,7 @@ public class ProveedorDAO {
 			return eliminado;
 		}
 		
-	//-------------------- motoda actualizar --------------------------------
+	//-------------------- motodo actualizar --------------------------------
 	public boolean actualizar(ProveedorVO proveedor ){
 		String query = "update proveedor "
 				+ "set nom_proveedor = ?, "

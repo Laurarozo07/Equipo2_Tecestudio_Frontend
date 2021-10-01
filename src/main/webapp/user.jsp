@@ -37,8 +37,8 @@ src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	        <input id="agregarU" type="button" value="Crear">
 	        <input id="actualizarU" type="button" value="Actualizar">
 	        <input id="eliminarU" type="button" value="Borrar">
-	        <input id="listarU" type="button" value="todos">
-	        <button type="reset" >limpiar</button> 
+	        <input id="listarU" type="button" value="Todos">
+	        <button type="reset" >Limpiar</button> 
      
     	</form>
     </section>
