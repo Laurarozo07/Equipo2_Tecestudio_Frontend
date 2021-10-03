@@ -2,6 +2,11 @@ const URL_PUERTO = "http://localhost:8080"
 
 $(document).ready(function () {
 
+	$.get(URL_PUERTO + "/userId", function (data, status) {
+        let id_user = data.idUsuario;
+        $("#id_user").html("<p>id_usuario "+id_user+"</p>");
+    });
+
 	$("#btn_test").click(function () {
 		let test = document.getElementById("inp_test").value;
 		$.post("http://localhost:8080/test", { text: test }, function (data, status) {

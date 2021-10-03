@@ -4,12 +4,16 @@
 const URL_PUERTO = "http://localhost:8080"
 
 $(document).ready(function () {
-   $.get(URL_PUERTO+"/venta/consecutivo",function (data, status){
+    $.get(URL_PUERTO + "/venta/consecutivo", function (data, status) {
         let consecu = data.consecutivo;
-        $("#inp_consec").val(" # "+consecu);
-        
-       });
+        $("#inp_consec").val(" # " + consecu);
 
+    });
+
+    $.get(URL_PUERTO + "/userId", function (data, status) {
+        let id_user = data.idUsuario;
+        $("#id_user").html("<p>Usuario "+id_user+"</p>");
+    });
     $("#btn_consuCli").click(function () {
 
         let docCliente = $("#inp_documento").val();
@@ -27,6 +31,5 @@ $(document).ready(function () {
 
         };
     })
-
 
 });
