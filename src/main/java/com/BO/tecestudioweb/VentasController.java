@@ -42,12 +42,16 @@ public class VentasController {
 	public Map<String, Boolean> guardarDetalle(){
 		
 		boolean detalleGuardado = false;
-		//	detalleTemp = new DetalleVentaVO();
-		//	detalleTemp.setCantidad_producto(cantidad_producto);
+		detalleTemp = new DetalleVentaVO();
+		detalleTemp.setCantidad_producto(1);
+		detalleTemp.setCodigo_producto(1);
+		detalleTemp.setCodigo_venta(11);
+		detalleTemp.setValor_iva(4963556);
+		detalleTemp.setValor_total(5906632);
+		detalleTemp.setValor_venta(943076);
 		
-		
-		detalleGuardado = detalleService.guardarDetalle(1, 
-				1, 10, 4963556, 5906632, 943076);
+		//1, 1, 10, 4963556, 5906632, 943076
+		detalleGuardado = detalleService.guardarDetalle(detalleTemp);
 		
 		return Collections.singletonMap("guardado", detalleGuardado);
 	}

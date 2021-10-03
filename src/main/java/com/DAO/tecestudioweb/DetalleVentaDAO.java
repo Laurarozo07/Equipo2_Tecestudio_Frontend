@@ -3,10 +3,11 @@ package com.DAO.tecestudioweb;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
+import com.DTO.tecestudioweb.DetalleVentaVO;
+
 public class DetalleVentaDAO {
 
-	public boolean guardarDetalle(int cantidad_producto, long codigo_producto, long codigo_venta, double valor_total,
-			double valor_venta, double valor_iva) {
+	public boolean guardarDetalle(DetalleVentaVO detalleV) {
 		int resultado = -1;
 		boolean guardado = false;
 		Conexion conexion = new Conexion();
@@ -20,12 +21,12 @@ public class DetalleVentaDAO {
 		try {
 			Connection conn = conexion.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(query);
-			pstmt.setInt(1, cantidad_producto);
-			pstmt.setLong(2, codigo_producto);
-			pstmt.setLong(3, codigo_venta);
-			pstmt.setDouble(4, valor_total);
-			pstmt.setDouble(5, valor_venta);
-			pstmt.setDouble(6, valor_iva);
+			pstmt.setInt(1, detalleV.getCantidad_producto());
+			pstmt.setLong(2, detalleV.getCodigo_producto());
+			pstmt.setLong(3, detalleV.getCodigo_venta());
+			pstmt.setDouble(4, detalleV.getValor_total());
+			pstmt.setDouble(5, detalleV.getValor_venta());
+			pstmt.setDouble(6, detalleV.getValor_iva());
 			resultado = pstmt.executeUpdate();
 
 			if (resultado > 0) {
