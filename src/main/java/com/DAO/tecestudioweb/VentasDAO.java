@@ -2,6 +2,8 @@ package com.DAO.tecestudioweb;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 import com.DTO.tecestudioweb.VentasVO;
 
@@ -40,14 +42,32 @@ public class VentasDAO {
 	}
 	
 	/**
-	 * este metodo consulta el ultimo numero de factura y lo retorna
+	 * trae el numero del ultimon numero consucutivo registrado en la base de datos 
 	 * @return {@link Integer} 
 	 */
-	public int traerConsecutivo() {
+	public long traerConsecutivo() {
+		Conexion conexion = new Conexion();
+		long consec = -1;
+		String query = "select max(codigo_venta) conse from ventas";
 		
 		
+		try {
+			Connection conn = conexion.getConnection();
+			Statement stmt = conn.createStatement();
+			ResultSet result = stmt.executeQuery(query);
+			
+			while(result.next()) {
+				consec = result.getLong("conse");
+			}
+			
+			conexion.desconectar();
+			
+		} catch (Exception e) {
+			System.out.println("no su pudo traer el consecutivo "+e);
+		}
 		
-		return -1;
+		
+		return consec;
 	}
 
 }

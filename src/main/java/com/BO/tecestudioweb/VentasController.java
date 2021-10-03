@@ -56,5 +56,14 @@ public class VentasController {
 		return Collections.singletonMap("guardado", detalleGuardado);
 	}
 	
+	@RequestMapping("/venta/consecutivo")
+	public Map<String, Long > traerConsecutivo(){
+		
+		long consecutivo;
+		consecutivo = ventasService.traerConsecutivo();
+		
+		return Collections.singletonMap("consecutivo", consecutivo );
+	}
+	
 	
 }

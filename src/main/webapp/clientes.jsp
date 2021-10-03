@@ -9,7 +9,7 @@
 src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-<script type="text/javascript" src="clientes.js"></script>
+<script type="text/javascript" src="js/clientes.js"></script>
 </head>
 <body>
 <header>

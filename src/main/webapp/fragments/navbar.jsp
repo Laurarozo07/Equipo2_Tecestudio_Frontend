@@ -6,7 +6,7 @@
 				<a href="clientes.jsp">Clientes</a> 
 				<a href="proveedores.jsp">Proveedores</a> 
 				<a href="Productos.jsp" >Productos</a>
-				<a>Ventas</a>
+				<a href="ventas.jsp">Ventas</a>
 				<a>Reportes</a>
 			</div>
 		</nav>

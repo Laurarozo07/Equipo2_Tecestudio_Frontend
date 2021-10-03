@@ -16,14 +16,16 @@ import com.fasterxml.jackson.databind.JsonNode;
 @RestController
 public class LoginController {
 	
+	private LoginDAO loginService=new LoginDAO(); //cargamos el objeto y se pasa al DAO y valida el usuario
+	
 	@RequestMapping("/loginusuario2")
 	public Map<String, Boolean> validarlogin2(String usuario, String password)//recibe esta cadena y convierte en un objeto de tipo cliente
 	{
 	 ArrayList<LoginVO> miusuario = new ArrayList<LoginVO>();//Crea el objeto arryList
 	 
 	//pasa la peteción al servicio
-	LoginDAO Dao=new LoginDAO(); //cargamos el objeto y se pasa al DAO y valida el usuario
-	 miusuario= Dao.consultarUsuario(usuario, password);
+	
+	 miusuario= loginService.consultarUsuario(usuario, password);
 	 if(miusuario.isEmpty())
 	 {
 	 return Collections.singletonMap("existe", false);
@@ -35,6 +37,14 @@ public class LoginController {
 	 }
 
 
+	}
+	
+	@RequestMapping("/userId")
+	public Map<String, Long> idUsuario(){
+		
+		long idUsuario = loginService.traerId();
+		
+		return Collections.singletonMap("idUsuario", idUsuario);
 	}
 
 }

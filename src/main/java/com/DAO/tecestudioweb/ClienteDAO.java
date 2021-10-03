@@ -26,6 +26,7 @@ public class ClienteDAO {
 			} else {
 				while (result.next()) {
 					clienteTemporal = new ClienteVO();
+					clienteTemporal.setId_cliente(result.getLong("ID_CLIENTE"));
 					clienteTemporal.setDoc_cliente(result.getInt("doc_cliente"));
 					clienteTemporal.setApe_cliente(result.getString("ape_cliente"));
 					clienteTemporal.setDirec_cliente(result.getString("direc_cliente"));
@@ -61,6 +62,7 @@ public class ClienteDAO {
 
 				while (result.next()) {
 					usuarioTemp = new ClienteVO();
+					usuarioTemp.setId_cliente(result.getLong("ID_CLIENTE"));
 					usuarioTemp.setDoc_cliente(result.getInt("doc_cliente"));
 					usuarioTemp.setNom_cliente(result.getString("nom_cliente"));
 					usuarioTemp.setEmail_cliente(result.getString("email_cliente"));

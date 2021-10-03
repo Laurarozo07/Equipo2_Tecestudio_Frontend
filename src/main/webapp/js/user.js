@@ -42,7 +42,7 @@ $(document).ready(function () {
 		let doc = $("#inp_documento").val();
 		if (doc == "") {
 			alert("campo Cedula esta vacio")
-		}else{
+		} else {
 			$.get(URL_PUERTO + "/buscar", { doc_usuario: doc }, function (data, status) {
 				const lista = data.respuesta;
 
@@ -138,18 +138,21 @@ $(document).ready(function () {
 		let elid = $("#inp_documento").val();
 		if (elid == "") {
 			alert(" campo Cedula esta vacio ")
-		} else {
-			$.post(URL_PUERTO + "/eliminar", { doc_usuario: elid }, function (data, status) {
+		} else if (elid == "1013689281") {
+			alert(" no se puede elminar al administrador ")
+		 }
+				else {
+					$.post(URL_PUERTO + "/eliminar", { doc_usuario: elid }, function (data, status) {
 
-				var respuesta = data.eliminado
-				if (respuesta == true) {
-					$("#mensaje").html("El usuario fue eliminado");
-				} else {
-					$("#mensaje").html("<b style= 'color:red;'>No se pudo eliminar, No existe !!!</b>");
+						var respuesta = data.eliminado
+						if (respuesta == true) {
+							$("#mensaje").html("El usuario fue eliminado");
+						} else {
+							$("#mensaje").html("<b style= 'color:red;'>No se pudo eliminar, No existe !!!</b>");
 
-				}
-			});
-		};
+						}
+					});
+				};
 
 	});
 });

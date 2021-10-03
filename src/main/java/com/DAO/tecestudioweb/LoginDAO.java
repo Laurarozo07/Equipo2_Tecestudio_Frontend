@@ -11,6 +11,10 @@ import com.DAO.tecestudioweb.*;
 import com.DTO.tecestudioweb.*;
 
 public class LoginDAO {
+	
+	private static long userId = 1;
+	
+	public LoginDAO(){}
 
 	
 	public ArrayList<LoginVO> consultarUsuario(String usuario, String password) {
@@ -27,6 +31,7 @@ public class LoginDAO {
 
 		 if(res.next()){
 		 LoginVO usuario1= new LoginVO();
+		 userId = res.getLong("ID_USUARIO");
 		 usuario1.setUsuario(res.getString("usuario"));//lee la BD
 		 usuario1.setClave(res.getString("password"));
 		 miusuario.add(usuario1);//agregar a la lista el usuario encontrado en la BD
@@ -39,4 +44,8 @@ public class LoginDAO {
 		 }
 		 return miusuario;
 		}
+	
+	public long traerId(){
+		return userId;
+	}
 }

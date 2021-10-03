@@ -4,6 +4,11 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<script
+src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script type="text/javascript" src="js/ventas.js"></script>
 <title>Ventas</title>
 </head>
 <body>
@@ -12,70 +17,71 @@
 	<%@ include file="fragments/navbar.jsp"%>
 </header>
 <section>
-<form action="" method="post">
+<form >
     <div>
-        <label for="cedula">Cedula</label>
-        <input type="text" name="cedula_cliente" placeholder="Ingrese su cedula">
-        <input type="button" value="Consultar">
+        <label for="inp_documento">Cedula</label>
+        <input id="inp_documento" type="text" name="cedula_cliente" placeholder="Ingrese su cedula" >
+        <div id="consecutivo" ></div>
+        <input id="btn_consuCli"type="button" value="Consultar">
         <label for="cliente">Cliente</label>
-        <input type="text" name="nombre_cliente" placeholder="Ingrese su nombre">
+        <input id="inp_nomCliente" type="text" name="nombre_cliente" placeholder="Ingrese su nombre">
         <label for="factura">Factura</label>
-        <input type="text" name="num_factura">
+        <input id="inp_consec" type="text" name="num_factura">
     </div>
         <br/>
         <div>
         <label for="codigo">Codigo</label>
         <br/>
         <input type="text" name="cod_producto" placeholder="Ingrese codigo">
-        <input type="button" value="Consultar">
+        <input  id="codigo1" type="button" value="Consultar">
         <br/>
         <input type="text" name="cod_producto" placeholder="Ingrese codigo">
-        <input type="button" value="Consultar">
+        <input id="codigo2" type="button" value="Consultar">
         <br/>
         <input type="text" name="cod_producto" placeholder="Ingrese codigo">
-        <input type="button" value="Consultar">
+        <input id="codigo3" type="button" value="Consultar">
     </div>
         <br/>
      <div>
         <label for="nombre producto">Nombre producto</label>
         <br/>
-        <input type="text" name="nomb_producto" >
+        <input id="nomProd1" type="text" name="nomb_producto" >
         <br/>
-        <input type="text" name="nomb_producto" > 
+        <input id="nomProd2" type="text" name="nomb_producto" > 
         <br/>
-        <input type="text" name="nomb_producto">
+        <input id="nomProd3" type="text" name="nomb_producto">
     </div>
         <br/>
         <div>
         <label for="cant">Cant</label>
         <br/>
-        <input type="text" name="cant_producto" >
+        <input id="inp_cant1" type="text" name="cant_producto" >
         <br/>
-        <input type="text" name="cant_producto" >
+        <input id="inp_cant2" type="text" name="cant_producto" >
         <br/>
-        <input type="text" name="cant_producto" >
+        <input id="inp_cant3" type="text" name="cant_producto" >
     </div>
         <br/>
         <div>
         <label for="vlr total">Vlr total</label>
         <br/>
-        <input type="text" name="vlr_total">
+        <input id="valorT1" type="text" name="vlr_total">
         <br/>
-        <input type="text" name="vlr_total">
+        <input id="valorT2" type="text" name="vlr_total">
         <br/>
-        <input type="text" name="vlr_total">
+        <input id="valorT3" type="text" name="vlr_total">
     </div>
         <br/>
         <div>
-        <label for="total venta">Total venta</label>
-        <input type="text" name="total">
-        <label for="total iva">Total iva</label>
-        <input type="text" name="total_iva">
-        <label for="total con iva">Total con iva</label>
-        <input type="text" name="total_factura">
+        <label >Total venta</label>
+        <input id="inp_totalVenta" type="text" name="valor total">
+        <label for="total iva">valor total</label>
+        <input id="inp_totalIva" type="text" name="total_iva">
+        <label for="total con iva">valor venta</label>
+        <input id="inp_valorVenta" type="text" name="valor venta">
     </div>
         <br/>
-         <input type="submit" value="Confirmar">
+         <input id="btn_confirmar" type="submit" value="Confirmar">
         
     </form>
 </section>

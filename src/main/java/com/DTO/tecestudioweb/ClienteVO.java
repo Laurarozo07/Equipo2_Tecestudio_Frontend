@@ -2,15 +2,18 @@ package com.DTO.tecestudioweb;
 
 public class ClienteVO {
 
+private long id_cliente;
 private String nom_cliente;
 private String ape_cliente;
 private String direc_cliente;
 private String email_cliente;
 private String tel_cliente;
 private int doc_cliente;
-public ClienteVO(String nom_cliente, String ape_cliente, String direc_cliente, String email_cliente, String tel_cliente,
-		int doc_cliente) {
+
+public ClienteVO(long id_cliente, String nom_cliente, String ape_cliente, String direc_cliente, String email_cliente,
+		String tel_cliente, int doc_cliente) {
 	super();
+	this.id_cliente = id_cliente;
 	this.nom_cliente = nom_cliente;
 	this.ape_cliente = ape_cliente;
 	this.direc_cliente = direc_cliente;
@@ -20,6 +23,15 @@ public ClienteVO(String nom_cliente, String ape_cliente, String direc_cliente, S
 }
 
 public ClienteVO() {}
+
+
+public long getId_cliente() {
+	return id_cliente;
+}
+
+public void setId_cliente(long id_cliente) {
+	this.id_cliente = id_cliente;
+}
 
 public String getNom_cliente() {
 	return nom_cliente;
