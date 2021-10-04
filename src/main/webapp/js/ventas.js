@@ -6,7 +6,7 @@ const URL_PUERTO = "http://localhost:8080"
 $(document).ready(function () {
     $.get(URL_PUERTO + "/venta/consecutivo", function (data, status) {
         let consecu = data.consecutivo;
-        $("#inp_consec").val(" # " + consecu);
+        $("#inp_consec").val(" # " + (consecu+1));
 
     });
 

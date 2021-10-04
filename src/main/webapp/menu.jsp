@@ -4,7 +4,8 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Menu</title>
+<link href="css/main.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <header>
