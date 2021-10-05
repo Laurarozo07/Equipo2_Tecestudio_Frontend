@@ -26,6 +26,7 @@ public class ClienteDAO {
 			} else {
 				while (result.next()) {
 					clienteTemporal = new ClienteVO();
+					clienteTemporal.setId_cliente(result.getLong("ID_CLIENTE"));
 					clienteTemporal.setDoc_cliente(result.getInt("doc_cliente"));
 					clienteTemporal.setApe_cliente(result.getString("ape_cliente"));
 					clienteTemporal.setDirec_cliente(result.getString("direc_cliente"));
@@ -44,13 +45,14 @@ public class ClienteDAO {
 	}
 
 	public List<ClienteVO> buscar(String doc_cliente) {
-		String query = "select * from usuario where doc_cliente = '" + doc_cliente + "'";
+		String query = "select * from cliente where doc_cliente = ?";
 		List<ClienteVO> listaClientes = new ArrayList<ClienteVO>();
 		Conexion conexion = new Conexion();
 		ClienteVO usuarioTemp;
 
 		try {
 			PreparedStatement consulta = conexion.getConnection().prepareStatement(query);
+			consulta.setString(1, doc_cliente);
 			ResultSet result = consulta.executeQuery();
 
 			if (result == null) {
@@ -60,6 +62,7 @@ public class ClienteDAO {
 
 				while (result.next()) {
 					usuarioTemp = new ClienteVO();
+					usuarioTemp.setId_cliente(result.getLong("ID_CLIENTE"));
 					usuarioTemp.setDoc_cliente(result.getInt("doc_cliente"));
 					usuarioTemp.setNom_cliente(result.getString("nom_cliente"));
 					usuarioTemp.setEmail_cliente(result.getString("email_cliente"));
@@ -103,7 +106,7 @@ public class ClienteDAO {
 			conexion.desconectar();
 
 		} catch (Exception e) {
-			System.out.println("no se pudo eliminar " + e);
+			System.out.println("no se pudo eliminar cliente" + e);
 		}
 
 		return eliminado;
@@ -112,7 +115,7 @@ public class ClienteDAO {
 	public boolean guardar(String nom_cliente, String ape_cliente, String direc_cliente, String email_cliente,
 			String tel_cliente, String doc_cliente) {
 
-		String query = "insert into cliente (nom_cliente, ape_cliente, direc_cliente, email_cliente, tel_cliente, doc_cliente) value (?, ?, ?, ?, ?, ?)";
+		String query = "insert into cliente (doc_cliente, nom_cliente, ape_cliente, direc_cliente, email_cliente, tel_cliente) value (?, ?, ?, ?, ?, ?)";
 		boolean guardado = false;
 		int respuestadb = 0;
 
@@ -122,9 +125,9 @@ public class ClienteDAO {
 			PreparedStatement pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, doc_cliente);
 			pstmt.setString(2, nom_cliente);
-			pstmt.setString(3, email_cliente);
-			pstmt.setString(4, ape_cliente);
-			pstmt.setString(5, direc_cliente);
+			pstmt.setString(3, ape_cliente);
+			pstmt.setString(4, direc_cliente);
+			pstmt.setString(5, email_cliente);
 			pstmt.setString(6, tel_cliente);
 
 			respuestadb = pstmt.executeUpdate();
@@ -140,10 +143,18 @@ public class ClienteDAO {
 		return guardado;
 	}
 
-	public boolean actualizar(String documento, String nombre, String correo, String usuario, String password) {
+	public boolean actualizar(long doc_cliente, String nom_cliente, 
+			String ape_cliente, String direc_cliente, String email_cliente,
+			String tel_cliente) {
+		
+		System.out.println(doc_cliente);
 
-		String query = "UPDATE cliente SET nom_cliente = '" + nombre + "', email_cliente = '" + correo + "', \r\n"
-				+ "usuario = '" + usuario + "', password = '" + password + "' WHERE doc_cliente = '" + documento + "';";
+		String query = "update cliente "
+				+ "set nom_cliente = ?,"
+				+ "ape_cliente = ?,"
+				+ "direc_cliente = ?,"
+				+ "email_cliente = ?,"
+				+ "tel_cliente = ? where doc_cliente = ?";
 
 		boolean actualizado = false;
 		int resultado = 0;
@@ -152,12 +163,13 @@ public class ClienteDAO {
 			Conexion conexion = new Conexion();
 			Connection conn = conexion.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(query);
-			// pstmt.setString(1, nombre);
-			// pstmt.setString(2, correo);
-			// pstmt.setString(3, usuario);
-			// pstmt.setString(4, password);
-			// pstmt.setString(5, documento);
-
+		    pstmt.setString(1, nom_cliente);
+		    pstmt.setString(2, ape_cliente);
+		    pstmt.setString(3, direc_cliente);
+		    pstmt.setString(4, email_cliente);
+		    pstmt.setString(5, tel_cliente);
+		    pstmt.setLong(6, doc_cliente);
+		    
 			resultado = pstmt.executeUpdate();
 
 			conexion.desconectar();
@@ -166,7 +178,7 @@ public class ClienteDAO {
 			}
 
 		} catch (Exception e) {
-			// TODO: handle exception
+			System.out.println(" no se ha podido actualizar "+e);
 		}
 		return actualizado;
 	}

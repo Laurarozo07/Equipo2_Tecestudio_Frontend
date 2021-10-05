@@ -79,15 +79,17 @@ public class ProveedorController {
 			// se realiza el cast del dato nit_proveedor en String a long
 			nit = Long.parseLong(nit_Proveedor);
 			encontrados = proveedorService.buscar(nit);
-			
-			
+					
 		} catch (Exception e) {
 			System.out.println("no se pudo realizar el cast del numero nit a long "+e);
 		}
 		
-		
+		if(encontrados.isEmpty()) {
+			return Collections.singletonMap("respuesta", null);
+		}else {
 		
 		return Collections.singletonMap("respuesta", encontrados);
+		}
 	}
 	
 	@GetMapping("/proveedorEliminar")
@@ -112,15 +114,25 @@ public class ProveedorController {
 		
 	}
 	@GetMapping("/proveedorActualizar")
-	public Map<String, Boolean> actualizarProveedor(){
+	public Map<String, Boolean> actualizarProveedor(String nit_Proveedor,
+			String nom_proveedor, String email_proveedor, String ciudad_proveedor, 
+			String direc_proveedor, String tel_proveedor ){
 		boolean actualizado = false;
+		long nit = -1;
+		try {
+			nit = Long.parseLong(nit_Proveedor);
+		} catch (Exception e) {
+			System.out.println("no se ha podido convertir el nit a long "+e);
+		}
+		
 		ProveedorVO proveedorGuardar = new ProveedorVO();
-		proveedorGuardar.setNit_Proveedor(101);
-		proveedorGuardar.setNom_proveedor("testUpdate sas");
-		proveedorGuardar.setEmail_proveedor("update@mail.com");
-		proveedorGuardar.setDirec_proveedor("Cl. 10 ##20-35");
-		proveedorGuardar.setCiudad_proveedor("Bogota");
-		proveedorGuardar.setTel_proveedor("2222222");
+		proveedorGuardar.setNit_Proveedor(nit);
+		proveedorGuardar.setNom_proveedor(nom_proveedor);
+		proveedorGuardar.setEmail_proveedor(email_proveedor);
+		proveedorGuardar.setDirec_proveedor(direc_proveedor);
+		proveedorGuardar.setCiudad_proveedor(ciudad_proveedor);
+		proveedorGuardar.setTel_proveedor(tel_proveedor);
+		System.out.println(proveedorGuardar.toString());
 		actualizado = proveedorService.actualizar(proveedorGuardar);
 		
 		if(actualizado) {

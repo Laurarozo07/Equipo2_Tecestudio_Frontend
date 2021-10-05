@@ -4,14 +4,22 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Menu</title>
+<title>Insert title here</title>
 <link href="css/main.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <header>
 	<%@ include file="fragments/navbar.jsp"%>
 </header>
-<section></section>
+<section>
+  <form name="formulario" method="post" action="/send.php" enctype="multipart/form-data">
+     <div>
+         <input type="file" name="adjunto"> 
+         <br/>
+        <input type="submit" value="Cargar">
+     </div>
+    </form>
+</section>
 <footer></footer>
 	
 	

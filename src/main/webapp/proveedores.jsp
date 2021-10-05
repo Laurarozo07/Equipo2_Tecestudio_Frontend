@@ -10,7 +10,8 @@
 src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-<script type="text/javascript" src="proveedores.js"></script>
+<script type="text/javascript" src="js/proveedores.js"></script>
+<link href="css/main.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <header>
@@ -38,9 +39,10 @@ src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <br/>
         <input id="btn_buscar" type="button" value="Consultar">
         <input id="btn_guardar" type="button" value="Crear">
-        <input type="button" value="Actualizar">
+        <input id="btn_actualizar" type="button" value="Actualizar">
         <input id="btn_eliminar" type="button" value="Borrar">
-        <input id="btn_listar" type="button" value="todos">
+        <input id="btn_listar" type="button" value="Todos">
+        <button type="reset">Limpiar</button>
     </form>
 </section>
 <section>
