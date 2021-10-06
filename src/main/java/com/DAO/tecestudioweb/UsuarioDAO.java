@@ -33,6 +33,7 @@ public class UsuarioDAO {
 
 				while (result.next()) {
 					usuarioTemp = new UsuarioVO();
+					usuarioTemp.setId_usuario(result.getLong("ID_USUARIO"));
 					usuarioTemp.setDoc_usuario(result.getString("doc_usuario"));
 					usuarioTemp.setNom_usuario(result.getString("nom_usuario"));
 					usuarioTemp.setEmail_usuario(result.getString("email_usuario"));
@@ -110,6 +111,7 @@ public class UsuarioDAO {
 
 				while (result.next()) {
 					usuarioTemp = new UsuarioVO();
+					usuarioTemp.setId_usuario(result.getLong("ID_USUARIO"));
 					usuarioTemp.setDoc_usuario(result.getString("doc_usuario"));
 					usuarioTemp.setNom_usuario(result.getString("nom_usuario"));
 					usuarioTemp.setEmail_usuario(result.getString("email_usuario"));
