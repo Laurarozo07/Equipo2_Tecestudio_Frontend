@@ -50,7 +50,6 @@ public class VentasController {
 		detalleTemp.setValor_total(5906632);
 		detalleTemp.setValor_venta(943076);
 		
-		//1, 1, 10, 4963556, 5906632, 943076
 		detalleGuardado = detalleService.guardarDetalle(detalleTemp);
 		
 		return Collections.singletonMap("guardado", detalleGuardado);

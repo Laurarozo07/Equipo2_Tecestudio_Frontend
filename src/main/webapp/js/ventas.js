@@ -72,7 +72,7 @@ $(document).ready(function () {
        
     });
 
-
+    //----------------- calcular venta --------------------------------
     function calcularVenta(){
         let totalVenta = 0; 
         let valorIva = 0;
