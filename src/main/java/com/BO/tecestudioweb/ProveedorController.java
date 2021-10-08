@@ -34,7 +34,6 @@ public class ProveedorController {
 			return Collections.singletonMap("respuesta", listaEncontrados);
 		}
 
-	
 	}
 	
 	@GetMapping("/proveedorGuardar")

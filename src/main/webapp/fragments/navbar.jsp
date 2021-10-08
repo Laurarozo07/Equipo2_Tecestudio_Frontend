@@ -13,7 +13,7 @@
 				<a href="proveedores.jsp">Proveedores</a> 
 				<a href="Productos.jsp" >Productos</a>
 				<a href="ventas.jsp">Ventas</a>
-				<a>Reportes </a>
+				<a href="reportes.jsp">Reportes </a>
 			</div>
 		</nav>
 </section>

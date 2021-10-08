@@ -1,9 +1,13 @@
 /**
  * 
  */
+
+
+
 const URL_PUERTO = "http://localhost:8080"
 
 $(document).ready(function () {
+
     //------------------------- consecutivo -------------------------
     $.get(URL_PUERTO + "/venta/consecutivo", function (data, status) {
         let consecu = data.consecutivo;
@@ -27,7 +31,7 @@ $(document).ready(function () {
 
             $.get(URL_PUERTO + "/clienteBuscar", { doc_usuario: docCliente }, function (data, status) {
                 const lista = data.respuesta;
-                console.log(lista);
+                
                 $("#inp_nomCliente").val(lista[0].ape_cliente + " " + lista[0].nom_cliente);
 
             });
@@ -72,6 +76,33 @@ $(document).ready(function () {
        
     });
 
+    $("#btn_confirmar").click(function () {
+
+        
+
+        let documento = $("#inp_documento").val();
+        let idUser = 0;
+        
+
+            $.get(URL_PUERTO + "/clienteBuscar",{doc_usuario: documento},function (data, status){
+              let idCliente = data.respuesta[ 0].id_cliente;
+              venta.id_cliente = idCliente; 
+    
+            });
+
+            $.get(URL_PUERTO + "/userId", function (data, status){
+                 idUser = data.idUsuario;
+                 venta.id_user =  idUser;
+                 console.log(venta.id_cliente+" "+venta.id_user);
+
+            });
+
+            
+
+
+
+    });
+
     //----------------- calcular venta --------------------------------
     function calcularVenta(){
         let totalVenta = 0; 
@@ -89,6 +120,15 @@ $(document).ready(function () {
         $("#inp_totalVenta").val(totalVenta);
         $("#inp_totalIva").val(valorIva);
         $("#inp_valorVenta").val(valorVenta);
+    };
+
+    
+    //-------------- class -----------------------------
+    class venta{
+
+        static id_cliente = -1;
+        static id_user = -1 ;
+    
     };
     
 

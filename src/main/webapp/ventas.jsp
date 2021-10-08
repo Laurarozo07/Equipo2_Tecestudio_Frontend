@@ -82,7 +82,7 @@ src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <input id="inp_valorVenta" type="text" name="valor venta" disabled="disabled">
     </div>
         <br/>
-         <input id="btn_confirmar" type="submit" value="Confirmar">
+         <input id="btn_confirmar" type="button" value="Confirmar">
         
     </form>
 </section>
