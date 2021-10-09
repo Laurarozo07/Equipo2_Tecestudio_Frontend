@@ -5,7 +5,7 @@
 </head>
 <body>
 	<section>
-		<div><h1><a href="menu.jsp"><img alt="20px" src="image/favicon-128.png"></a>TecEstudio</h1></div>
+		<div><h1><a href="menu.jsp"><img alt="20px" src="image/apple-touch-icon-76x76.png"></a>TecEstudio</h1></div>
 		<nav>
 			<div>
 				<a href="user.jsp">Usuarios</a> 

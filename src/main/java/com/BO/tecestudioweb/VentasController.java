@@ -23,20 +23,38 @@ public class VentasController {
 	@RequestMapping("/guardarVenta")
 	public Map<String , Boolean> guardarFactura(String id_cliente, String id_usuario,
 			String iva_venta, String total_venta, String valor_venta){
-		
 		boolean facturaGuardada = false;
 		ventaTemp = new VentasVO();
-		 
-		ventaTemp.setId_cliente(11);
-		ventaTemp.setId_usuario(3);
-		ventaTemp.setIva_venta(943076);
-		ventaTemp.setTotal_venta(4963556);
-		ventaTemp.setValor_venta(5906632);
+		int idCliente = 0;
+		int idUsuario = 0;
+		double ivaVenta = 0;
+		double totalVenta = 0;
+		double valorVenta = 0;
+		//----------- casting de datos -------------------
+		try {
+			idCliente = Integer.parseInt(id_cliente);
+			idUsuario = Integer.parseInt(id_usuario);
+			ivaVenta = Double.parseDouble(iva_venta);
+			totalVenta = Double.parseDouble(total_venta);
+			valorVenta = Double.parseDouble(valor_venta);
+			
+		} catch (Exception e) {
+			System.out.println("no se logro hacer el casting de los datos ");
+		}
+		
+		//----------------------------------------------- 
+		ventaTemp.setId_cliente(idCliente);
+		
+		ventaTemp.setId_usuario(idUsuario);
+		ventaTemp.setIva_venta(ivaVenta);
+		ventaTemp.setTotal_venta(totalVenta);
+		ventaTemp.setValor_venta(valorVenta);
 		
 		facturaGuardada = ventasService.guardarVenta(ventaTemp);
 
 		return Collections.singletonMap("guardado", facturaGuardada);
 	}
+	
 	
 	@RequestMapping("/guardarDetalle")
 	public Map<String, Boolean> guardarDetalle(){
@@ -45,10 +63,10 @@ public class VentasController {
 		detalleTemp = new DetalleVentaVO();
 		detalleTemp.setCantidad_producto(1);
 		detalleTemp.setCodigo_producto(1);
-		detalleTemp.setCodigo_venta(11);
-		detalleTemp.setValor_iva(4963556);
-		detalleTemp.setValor_total(5906632);
-		detalleTemp.setValor_venta(943076);
+		detalleTemp.setCodigo_venta(3);
+		detalleTemp.setValor_iva(943076);
+		detalleTemp.setValor_total(4963556);
+		detalleTemp.setValor_venta(5906632);
 		
 		detalleGuardado = detalleService.guardarDetalle(detalleTemp);
 		

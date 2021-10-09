@@ -4,7 +4,6 @@ $(document).ready(function () {
     
 	
 	$("#btn_listarU").click(function () {
-
 		$.get(URL_PUERTO + "/todos", function (data, status) {
 			const lista = data.respuesta;
 
@@ -59,12 +58,4 @@ $(document).ready(function () {
 		});
 	});
 
-
-
-	
-
-
-	
-
-	
 });
