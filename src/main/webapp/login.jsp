@@ -5,6 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>logIn</title>
+
+<link rel="icon" type="image/png" href="image/favicon-196x196.png" sizes="196x196" />
+<link rel="icon" type="image/png" href="image/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/png" href="image/favicon-16x16.png" sizes="16x16" />
+<link rel="icon" type="image/png" href="image/favicon-128.png" sizes="128x128" />
 <script
 src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>

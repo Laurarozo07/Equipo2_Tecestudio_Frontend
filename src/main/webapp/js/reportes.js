@@ -1,6 +1,7 @@
 const URL_PUERTO = "http://localhost:8080"
 
 $(document).ready(function () {
+	$("#moduloVentas").hide();
     
 	// ------------------------ listar usuarios -------------------------------------------
 	$("#btn_listarU").click(function () {
@@ -59,11 +60,9 @@ $(document).ready(function () {
 	});
 	$("#btn_ventasc").click(function(){
 
-		if(document.getElementById("moduloVentas").style.display == "none"){
-			document.getElementById("moduloVentas").style.display="inline";
-		}else{
-			document.getElementById("moduloVentas").style.display="none";
-		};
+	$("#mensaje").html("");
+	$("#form_botones").hide();
+	$("#moduloVentas").slideDown(750);
 
 	});
 

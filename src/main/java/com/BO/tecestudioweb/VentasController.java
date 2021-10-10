@@ -57,16 +57,18 @@ public class VentasController {
 	
 	
 	@RequestMapping("/guardarDetalle")
-	public Map<String, Boolean> guardarDetalle(){
+	public Map<String, Boolean> guardarDetalle(int cantidad_producto, 
+			long codigo_producto, long codigo_venta, double valor_total,
+			double valor_venta, double valor_iva){
 		
 		boolean detalleGuardado = false;
 		detalleTemp = new DetalleVentaVO();
-		detalleTemp.setCantidad_producto(2);
-		detalleTemp.setCodigo_producto(1);
-		detalleTemp.setCodigo_venta(5);
-		detalleTemp.setValor_iva(1886151.28);
-		detalleTemp.setValor_total(9927112);
-		detalleTemp.setValor_venta(11813263.28);
+		detalleTemp.setCantidad_producto(cantidad_producto);
+		detalleTemp.setCodigo_producto(codigo_producto);
+		detalleTemp.setCodigo_venta(codigo_venta);
+		detalleTemp.setValor_iva(valor_iva);
+		detalleTemp.setValor_total(valor_total);
+		detalleTemp.setValor_venta(valor_venta);
 		
 		detalleGuardado = detalleService.guardarDetalle(detalleTemp);
 		
