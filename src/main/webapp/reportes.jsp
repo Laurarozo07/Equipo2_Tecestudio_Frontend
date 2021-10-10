@@ -22,12 +22,18 @@ src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	    <br>
 	    <button id="btn_listac" type="button" value="clientes" >Listado De Clientes</button>
 	    <br>
-	    <button id="btn_ventasc" >Ventas Por Cliente</button>
-    </form>
-    <div id="mensaje" ></div>
+	    <button id="btn_ventasc" type="button" value="ventas" >Ventas Por Cliente</button>
+    </form>    
 </section>
+<section id="moduloVentas" style="display: none">
+	<label>cedula del cliente</label>
+	<input id="inp_cedulaC" name="cedulaC" type="number" min="1">
+	<button id="btn_buscarDetalle" type="button" value="detalle" >buscar</button>
+	<input id="inp_nomCliente" disabled="disabled" >
+</section>
+
 <section>
-	
+	<div id="mensaje" ></div>
 </section>
 <footer></footer>
 

@@ -2,7 +2,7 @@ const URL_PUERTO = "http://localhost:8080"
 
 $(document).ready(function () {
     
-	
+	// ------------------------ listar usuarios -------------------------------------------
 	$("#btn_listarU").click(function () {
 		$.get(URL_PUERTO + "/todos", function (data, status) {
 			const lista = data.respuesta;
@@ -28,7 +28,7 @@ $(document).ready(function () {
 			}
 		});
 	});
-
+	//---------------------- lsitar clientes ---------------------------------
     $("#btn_listac").click(function () {
 
 		$.get(URL_PUERTO + "/clienteTodos", function (data, status) {
@@ -57,5 +57,61 @@ $(document).ready(function () {
 			}
 		});
 	});
+	$("#btn_ventasc").click(function(){
+
+		if(document.getElementById("moduloVentas").style.display == "none"){
+			document.getElementById("moduloVentas").style.display="inline";
+		}else{
+			document.getElementById("moduloVentas").style.display="none";
+		};
+
+	});
+
+	$("#btn_buscarDetalle").click(function(){
+
+		buscarDetalle();
+
+	});
+
+	function buscarDetalle(){
+		let documento = $("#inp_cedulaC").val();
+		if(documento == "" || documento ==" "  || documento <1 ){
+			alert(" campo documento esta vacio o es un numero no valido ")
+		}else{
+			$.get(URL_PUERTO + "/buscarReporte",{DOC_CLIENTE: documento}, function (data, status) {
+				const lista = data.reportes;
+	
+	
+	
+				if (lista == null || lista.length == 0) {
+					alert("no hay ventas del cliente con doc: "+documento);
+					$("#mensaje").html("")
+	
+				} else {
+	
+					let salida = "<table>";
+					salida = salida + "<tr><th>codigo venta</th><th>cod producto</th><th>cantidad</th><th>nom Producto</th><th>nom proveedor</th><th>valor_total</th><th>valor_venta</th><th>valor_iva</th></tr>";
+					for (let i = 0; i < lista.length; i++) {
+						salida = salida + "<tr>";
+						salida = salida + "<td>" + lista[i].codigo_venta + "</td>";
+						salida = salida + "<td>" + lista[i].codigo_producto + "</td>";
+						salida = salida + "<td>" + lista[i].cantidad_producto + "</td>";
+						salida = salida + "<td>" + lista[i].nombre_Producto + "</td>";
+						salida = salida + "<td>" + lista[i].nom_proveedor + "</td>";
+						salida = salida + "<td>" + lista[i].valor_total + "</td>";
+						salida = salida + "<td>" + lista[i].valor_venta + "</td>";
+						salida = salida + "<td>" + lista[i].valor_iva + "</td>";
+						salida = salida + "</tr>";
+					}
+					salida = salida + "</table>";
+					$("#inp_nomCliente").val(lista[0].ape_cilente +" "+lista[0].nom_cliente);
+					$("#mensaje").html(salida);
+	
+				}
+			});
+		};
+		
+
+	}
 
 });

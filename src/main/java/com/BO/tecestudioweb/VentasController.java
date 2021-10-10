@@ -61,12 +61,12 @@ public class VentasController {
 		
 		boolean detalleGuardado = false;
 		detalleTemp = new DetalleVentaVO();
-		detalleTemp.setCantidad_producto(1);
+		detalleTemp.setCantidad_producto(2);
 		detalleTemp.setCodigo_producto(1);
-		detalleTemp.setCodigo_venta(3);
-		detalleTemp.setValor_iva(943076);
-		detalleTemp.setValor_total(4963556);
-		detalleTemp.setValor_venta(5906632);
+		detalleTemp.setCodigo_venta(5);
+		detalleTemp.setValor_iva(1886151.28);
+		detalleTemp.setValor_total(9927112);
+		detalleTemp.setValor_venta(11813263.28);
 		
 		detalleGuardado = detalleService.guardarDetalle(detalleTemp);
 		
