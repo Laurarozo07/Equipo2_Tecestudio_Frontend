@@ -58,6 +58,12 @@ public class VentasVO {
 	public void setValor_venta(double valor_venta) {
 		this.valor_venta = valor_venta;
 	}
-	
 
+	@Override
+	public String toString() {
+		return "VentasVO [id_cliente=" + id_cliente + ", id_usuario=" + id_usuario + ", iva_venta=" + iva_venta
+				+ ", total_venta=" + total_venta + ", valor_venta=" + valor_venta + "]";
+	}
+	
+	
 }

@@ -9,6 +9,12 @@ import com.DTO.tecestudioweb.VentasVO;
 
 public class VentasDAO {
 	
+	/**
+	 * guarda en la base de datos los datos de la venta 
+	 * @param venta
+	 * @return {@code boolean} true si logra guardarlo
+	 */
+	
 	public boolean guardarVenta(VentasVO venta) {
 		Conexion conexion = new Conexion();
 		int resultado = -1;
@@ -23,6 +29,9 @@ public class VentasDAO {
 			+ "value(?, ?,  ?, ?, ? )";
 		
 		try {
+			//----prueba ----
+			System.out.println(venta.toString());
+			//--------------
 			Connection conn = conexion.getConnection();	
 			PreparedStatement pstmt = conn.prepareStatement(query);
 			pstmt.setLong(1, venta.getId_cliente());
@@ -41,8 +50,21 @@ public class VentasDAO {
 		return guardado;
 	}
 	
+	public VentasVO traerVenta() {
+		VentasVO venta = new VentasVO();
+		String query = "";
+		Conexion conexion = new Conexion();
+		try {
+			Connection conn = conexion.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(query);
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return null;
+	} 
 	/**
-	 * trae el numero del ultimon numero consucutivo registrado en la base de datos 
+	 * trae el numero del ultimo numero consucutivo registrado en la base de datos 
 	 * @return {@link Integer} 
 	 */
 	public long traerConsecutivo() {
@@ -59,14 +81,11 @@ public class VentasDAO {
 			while(result.next()) {
 				consec = result.getLong("conse");
 			}
-			
 			conexion.desconectar();
 			
 		} catch (Exception e) {
 			System.out.println("no su pudo traer el consecutivo "+e);
 		}
-		
-		
 		return consec;
 	}
 
