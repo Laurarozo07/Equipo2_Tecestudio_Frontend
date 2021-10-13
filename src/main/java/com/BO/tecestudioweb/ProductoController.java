@@ -35,17 +35,17 @@ public class ProductoController {
 	}
 
 	@RequestMapping("/productoBuscar")
-	public Map<String, List<ProductoVO>> productoBuscar(String nit_proveedor) {
+	public Map<String, List<ProductoVO>> productoBuscar(String CODIGO_PRODUCTO) {
 		List<ProductoVO> listaProductos = new ArrayList<ProductoVO>();
-		long nit = -1;
+		long codigoP = -1;
 		try {
-			nit = Long.parseLong(nit_proveedor);
+			codigoP = Long.parseLong(CODIGO_PRODUCTO);
 			
 			
 		} catch (Exception e) {
 			System.out.println("no se pudo realizar el cast del numero nit a long "+e);
 		}
-		listaProductos = productoService.buscar(nit);
+		listaProductos = productoService.buscar(codigoP);
 		
 		if (listaProductos.isEmpty()) {
 			return Collections.singletonMap("respuesta", null);

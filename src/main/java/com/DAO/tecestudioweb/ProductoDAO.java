@@ -77,15 +77,15 @@ public class ProductoDAO {
 		return listaProductos;
 	}
 	
-	public List<ProductoVO> buscar (Long nit_proveedor){
+	public List<ProductoVO> buscar (Long CODIGO_PRODUCTO){
 		ProductoVO productoTemp = null;
 		List<ProductoVO> productos = new ArrayList<ProductoVO>();
-		String query = "select * from proveedor where nit_proveedor = ?";
+		String query = "select * from producto where CODIGO_PRODUCTO = ?";
 		Conexion conexion = new Conexion();
 		try {
 			Connection conn = conexion.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(query);
-			pstmt.setLong(1, nit_proveedor);
+			pstmt.setLong(1, CODIGO_PRODUCTO);
 			ResultSet result = pstmt.executeQuery();
 			
 			if(result != null) {
