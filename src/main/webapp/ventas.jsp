@@ -72,11 +72,11 @@ src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <div>
         <label for="vlr total">Vlr total</label>
         <br/>
-        <input id="valorT1" type="text" name="vlr_total" disabled="disabled" value>
+        <input id="valorT1" type="text" name="vlr_total" disabled="disabled">
         <br/>
-        <input id="valorT2" type="text" name="vlr_total" disabled="disabled" value>
+        <input id="valorT2" type="text" name="vlr_total" disabled="disabled">
         <br/>
-        <input id="valorT3" type="text" name="vlr_total" disabled="disabled" value>
+        <input id="valorT3" type="text" name="vlr_total" disabled="disabled" >
     </div>
         <br/>
         <div>

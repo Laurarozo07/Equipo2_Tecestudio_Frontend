@@ -17,7 +17,6 @@
 src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-<script type="text/javascript" src="js/importcsv.js"></script>
 </head>
 <body>
 <header>
@@ -52,6 +51,17 @@ src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript">
   $("#modulo_confirmar").hide();
   const listProduct = [];
+
+  $("#confirmar").click(function(){
+    $("#confirmar").hide();
+    console.log(listProduct);
+    const lista = listProduct[0];
+    for (let i = 0; i < lista.length; i=i+5) {
+       console.log( lista[i] + lista[i+1] + lista[i+2] + lista[i+3] + lista[i+4])
+        guardarProducto(lista[i],lista[i+1], lista[i+2], lista[i+3],lista[i+4] );
+    }
+     
+ });
 	function validarExt(){
 		var archivoInput = document.getElementById('archivoInput');
     var archivoRuta = archivoInput.value;
@@ -131,46 +141,21 @@ src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
    
     });
 
-
-  //  var allRows = data.split(/\r?\n|\r/);
-  //  var table = '<table>';
-  //  for (var singleRow = 0; singleRow < allRows.length; singleRow++) {
-  //    if (singleRow === 0) {
-  //      table += '<thead>';
-  //      table += '<tr>';
-  //    } else {
-  //      table += '<tr>';
-  //    }
-  //    var rowCells = allRows[singleRow].split(',');
-  //    for (var rowCell = 0; rowCell < rowCells.length; rowCell++) {
-  //      if (singleRow === 0) {
-  //        table += '<th>';
-  //        table += rowCells[rowCell];
-  //        table += '</th>';
-  //      } else {
-  //        table += '<td>';
-  //        table += rowCells[rowCell];
-  //        textProduct.push(rowCells[rowCell]);
-  //        table += '</td>';
-  //      };
-  //    }
-  //    if (singleRow === 0) {
-  //      table += '</tr>';
-  //      table += '</thead>';
-  //      table += '<tbody>';
-  //    } else {
-  //      table += '</tr>';
-  //    };
-  //  } 
-  //  table += '</tbody>';
-  //  table += '</table>';
-  // //  $('body').append(table);
-  // $("#tableResult").html(table);
-  // console.log(textProduct);
  };
 
- $("#confirmar").click(function(){
-    console.log(listProduct);
- });
+  function guardarProducto(nProducto,pCompra, ivaCompra, pVenta,nit ){
+    return new Promise((resolve, reject) => {
+      
+      $.get("http://localhost:5000/productoGuardar",{ nombre_producto: nProducto, 
+      precio_compra: pCompra, iva_compra: ivaCompra, precio_venta: pVenta,
+			nit_proveedor: nit},function(data, status){
+        console.log(data.guardado);
+        resolve(data.guardado);
+      });
+
+    });
+
+  };
+ 
 </script>
 </html>

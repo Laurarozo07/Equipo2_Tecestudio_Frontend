@@ -2,6 +2,7 @@ package com.BO.tecestudioweb;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -17,17 +18,34 @@ public class ProductoController {
  
 	ProductoDAO productoService = new ProductoDAO();
 	
+	
 	@RequestMapping("/productoGuardar")
-	public Map<String, Boolean> productoGuardar(){
-		
+	public Map<String, Boolean> productoGuardar(String nombre_producto,
+			String precio_compra, String iva_compra, String precio_venta,
+			String nit_proveedor){
 		boolean guardado = false;
-		
+		double pCompra = -1;
+		double ivaCompra = -1;
+		double pVenta = -1;
+		long nit = -1;
+		//------------------ casteo ----------------------------------
+		try {
+			pCompra = Double.parseDouble(precio_compra);
+			ivaCompra = Double.parseDouble(iva_compra);
+			pVenta =  Double.parseDouble(precio_venta);
+			nit = Long.parseLong(nit_proveedor);
+		} catch (Exception e) {
+			System.out.println("no se pudo realizar el cast de uno de los datos "+e.getMessage());
+			return null;
+		}
+		//-----------------envio de datos al DAO ------------------------
+		System.out.println(nombre_producto+precio_compra+iva_compra+precio_venta+nit_proveedor);
 		ProductoVO producto = new ProductoVO();
-		producto.setNombre_producto("Portátil HP 14-cf2059la");
-		producto.setIva_compra(588810);
-		producto.setPrecio_compra(2500000);
-		producto.setPrecio_venta(3099000);
-		producto.setNit_proveedor(9004984410l);
+		producto.setNombre_producto(nombre_producto);
+		producto.setIva_compra(ivaCompra);
+		producto.setPrecio_compra(pCompra);
+		producto.setPrecio_venta(pVenta);
+		producto.setNit_proveedor(nit);
 		
 		guardado = productoService.productoGuardar(producto);
 		
