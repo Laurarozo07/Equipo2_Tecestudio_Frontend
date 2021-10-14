@@ -61,6 +61,7 @@ public class ProductoDAO {
 				
 				while(result.next()) {
 					productoTemp = new ProductoVO();
+					productoTemp.setCodigo_producto(result.getLong("codigo_producto"));
 					productoTemp.setNombre_producto(result.getString("nombre_producto"));
 					productoTemp.setPrecio_compra(result.getLong("precio_compra"));
 					productoTemp.setIva_compra(result.getLong("iva_compra"));

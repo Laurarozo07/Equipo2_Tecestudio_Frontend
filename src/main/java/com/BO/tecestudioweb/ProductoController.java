@@ -18,6 +18,17 @@ public class ProductoController {
  
 	ProductoDAO productoService = new ProductoDAO();
 	
+	@RequestMapping("/productoTodos")
+	public Map<String, List<ProductoVO>> traerTodos(){
+		List<ProductoVO> listaProductos = new ArrayList<ProductoVO>();
+		listaProductos = productoService.traerTodos();
+		if (listaProductos.isEmpty()) {
+			return Collections.singletonMap("respuesta", null);
+		}else {
+			return Collections.singletonMap("respuesta", listaProductos);
+			
+		}
+	}
 	
 	@RequestMapping("/productoGuardar")
 	public Map<String, Boolean> productoGuardar(String nombre_producto,

@@ -58,6 +58,34 @@ $(document).ready(function () {
 			}
 		});
 	});
+	$("#btn_produc").click(() => {
+		$.get(URL_PUERTO + "/productoTodos", function (data, status) {
+			const lista = data.respuesta;
+
+			if (lista == null) {
+				alert("no hay clientes");
+
+			} else {
+
+				let salida = "<table>";
+				salida = salida + "<tr><th>ID</th><th>NOMBRE</th><th>PRECIO COMPRA</th><th>IVA COMPRA</th><th>PRECIO VENTA</th><th>NIT</th></tr>";
+				for (let i = 0; i < lista.length; i++) {
+					salida = salida + "<tr>";
+					salida = salida + "<td>" + lista[i].codigo_producto + "</td>";
+					salida = salida + "<td>" + lista[i].nombre_producto + "</td>";
+					salida = salida + "<td>" + lista[i].precio_compra + "</td>";
+					salida = salida + "<td>" + lista[i].iva_compra + "</td>";
+					salida = salida + "<td>" + lista[i].precio_venta + "</td>";
+					salida = salida + "<td>" + lista[i].nit_proveedor + "</td>";
+					salida = salida + "</tr>";
+				}
+				salida = salida + "</table>";
+				$("#mensaje").html(salida);
+
+			}
+		});
+
+	});
 	$("#btn_ventasc").click(function(){
 
 	$("#mensaje").html("");
