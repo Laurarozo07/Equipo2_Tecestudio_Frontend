@@ -34,14 +34,14 @@ $(document).ready(function () {
         } else {
 
             $.get(URL_PUERTO + "/clienteBuscar", { doc_usuario: docCliente }, function (data, status) {
-                
-                
-                    console.log(data.respuesta);
-                    let idCliente = data.respuesta[0].id_cliente;
-                    Venta.id_cliente = idCliente;
-                    console.log(Venta.id_cliente + " || " + Venta.id_user);
-                    $("#inp_nomCliente").val(data.respuesta[0].ape_cliente + " " + data.respuesta[0].nom_cliente);
-                    
+
+
+                console.log(data.respuesta);
+                let idCliente = data.respuesta[0].id_cliente;
+                Venta.id_cliente = idCliente;
+                console.log(Venta.id_cliente + " || " + Venta.id_user);
+                $("#inp_nomCliente").val(data.respuesta[0].ape_cliente + " " + data.respuesta[0].nom_cliente);
+
 
             });
 
@@ -60,7 +60,7 @@ $(document).ready(function () {
                 $("#nomProd1").val(listaProduto.nombre_producto);
                 $("#valorT1").val(listaProduto.precio_venta);
                 console.log(listaProduto);
-                
+
             });
         }
 
@@ -76,7 +76,7 @@ $(document).ready(function () {
                 $("#nomProd2").val(listaProduto.nombre_producto);
                 $("#valorT2").val(listaProduto.precio_venta);
                 console.log(listaProduto);
-                
+
             });
         }
 
@@ -93,35 +93,35 @@ $(document).ready(function () {
                 $("#nomProd3").val(listaProduto.nombre_producto);
                 $("#valorT3").val(listaProduto.precio_venta);
                 console.log(listaProduto);
-                
+
             });
         }
 
     });
     //------------------------------ boton calcular ------------------------------
     $("#btn_calcular").click(() => {
-        let datosCompletos= false;
-        for (var i = 0; i < 3;i++){
-            if($("#inp_codigo"+(i+1)).val() != "" && $("#inp_cant"+(i+1)).val() != ""  && $("#inp_nomCliente").val() != ""){
+        let datosCompletos = false;
+        for (var i = 0; i < 3; i++) {
+            if ($("#inp_codigo" + (i + 1)).val() != "" && $("#inp_cant" + (i + 1)).val() != "" && $("#inp_nomCliente").val() != "") {
                 datosCompletos = true;
             };
         };
 
-        if(datosCompletos){
+        if (datosCompletos) {
             calcularVenta();
-        }else{
+        } else {
             alert("datos imcompletos")
         };
-        
+
     });
     // ------------------------------- boton confirmar ------------------------------------
     $("#btn_confirmar").click(function () {
         $("#btn_confirmar").hide();
         let CantidadProductos = 0;
         for (let i = 1; i <= 3; i++) {
-            if($("#inp_codigo"+i).val() != ""){
-                CantidadProductos ++;
-                
+            if ($("#inp_codigo" + i).val() != "") {
+                CantidadProductos++;
+
             }
         };
 
@@ -129,17 +129,22 @@ $(document).ready(function () {
             if (ventaGuardada) {
                 for (let index = 1; index <= CantidadProductos; index++) {
                     guardarDetalle(index).then((guardado) => {
-                        if(guardado){
-                            alert("Venta realizada");
-                        }else {
-                            alert("no se ha podido realizar la venta")
+                        if (guardado) {
+                            if(index == 1){
+                                alert("Venta realizada");
+                            }
+                        } else {
+                            if(index == 1){
+                                alert("no se ha podido realizar la venta");
+                            }
+                            
                         };
 
                     });
                 }
             };
         });
-        
+
     });
     // ------------------ functions ---------------------------------
     function traerConsecutivo() {
@@ -199,23 +204,19 @@ $(document).ready(function () {
 
             };
 
-            setTimeout(() => {
-                console.log(detalle);
-            }, 2000);
-
         });
 
     }
     //----------------- calcular venta --------------------------------
-    function traerProduto(codigo){
+    function traerProduto(codigo) {
         return new Promise((resolve, reject) => {
-            $.get(URL_PUERTO + "/productoBuscar",{CODIGO_PRODUCTO: codigo},function (data, status){
+            $.get(URL_PUERTO + "/productoBuscar", { CODIGO_PRODUCTO: codigo }, function (data, status) {
                 let listaDatos = data.respuesta;
                 resolve(listaDatos[0]);
             });
         });
     };
-    
+
     function calcularVenta() {
         let totalVenta = 0;
         let valorIva = 0;
@@ -232,8 +233,8 @@ $(document).ready(function () {
         $("#inp_totalVenta").val(totalVenta);
         $("#inp_totalIva").val(valorIva);
         $("#inp_valorVenta").val(valorVenta);
-        for (var i = 0; i < 3;i++){
-            if($("#inp_codigo"+(i+1)).val() != "" && $("#inp_cant"+(i+1)).val() != ""  ){
+        for (var i = 0; i < 3; i++) {
+            if ($("#inp_codigo" + (i + 1)).val() != "" && $("#inp_cant" + (i + 1)).val() != "") {
                 $("#btn_confirmar").show(400);
             }
         };
@@ -258,6 +259,5 @@ $(document).ready(function () {
         valor_iva = -1;
 
     }
-
 
 });

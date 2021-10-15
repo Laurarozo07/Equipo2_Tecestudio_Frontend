@@ -13,7 +13,7 @@ public class ClienteDAO {
 
 	public List<ClienteVO> traerTodos() {
 		Conexion conexion = new Conexion();
-		String query = "select * from Cliente;";
+		String query = "select * from CLIENTE;";
 		ClienteVO clienteTemporal = new ClienteVO();
 		List<ClienteVO> listaClientes = new ArrayList<ClienteVO>();
 
@@ -45,7 +45,7 @@ public class ClienteDAO {
 	}
 
 	public List<ClienteVO> buscar(String doc_cliente) {
-		String query = "select * from cliente where doc_cliente = ?";
+		String query = "select * from CLIENTE where doc_cliente = ?";
 		List<ClienteVO> listaClientes = new ArrayList<ClienteVO>();
 		Conexion conexion = new Conexion();
 		ClienteVO usuarioTemp;
@@ -90,7 +90,7 @@ public class ClienteDAO {
 
 	public boolean eliminar(String doc_cliente) {
 
-		String query = "delete from cliente where DOC_CLIENTE = ?";
+		String query = "delete from CLIENTE where DOC_CLIENTE = ?";
 		boolean eliminado = false;
 		int resultado = 0;
 
@@ -115,7 +115,7 @@ public class ClienteDAO {
 	public boolean guardar(String nom_cliente, String ape_cliente, String direc_cliente, String email_cliente,
 			String tel_cliente, String doc_cliente) {
 
-		String query = "insert into cliente (doc_cliente, nom_cliente, ape_cliente, direc_cliente, email_cliente, tel_cliente) value (?, ?, ?, ?, ?, ?)";
+		String query = "insert into CLIENTE (doc_cliente, nom_cliente, ape_cliente, direc_cliente, email_cliente, tel_cliente) value (?, ?, ?, ?, ?, ?)";
 		boolean guardado = false;
 		int respuestadb = 0;
 
@@ -149,7 +149,7 @@ public class ClienteDAO {
 		
 		System.out.println(doc_cliente);
 
-		String query = "update cliente "
+		String query = "update CLIENTE "
 				+ "set nom_cliente = ?,"
 				+ "ape_cliente = ?,"
 				+ "direc_cliente = ?,"

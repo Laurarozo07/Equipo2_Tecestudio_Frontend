@@ -20,12 +20,12 @@ public class VentasDAO {
 		int resultado = -1;
 		boolean guardado = false;
 			
-	String query = "insert into ventas("
-			+ "id_cliente, "
-			+ "id_usuario, "
-			+ "iva_venta, "
-			+ "total_venta, "
-			+ "valor_venta) "
+	String query = "insert into VENTAS("
+			+ "ID_CLIENTE, "
+			+ "ID_USUARIO, "
+			+ "IVA_VENTA, "
+			+ "TOTAL_VENTA, "
+			+ "VALOR_VENTA) "
 			+ "value(?, ?,  ?, ?, ? )";
 		
 		try {
@@ -70,7 +70,7 @@ public class VentasDAO {
 	public long traerConsecutivo() {
 		Conexion conexion = new Conexion();
 		long consec = -1;
-		String query = "select max(codigo_venta) conse from ventas";
+		String query = "select max(CODIGO_VENTA) conse from VENTAS";
 		
 		
 		try {

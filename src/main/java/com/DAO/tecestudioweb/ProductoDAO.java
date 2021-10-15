@@ -15,11 +15,10 @@ public class ProductoDAO {
 		
 		Conexion conexion = new Conexion();
 		Connection conn = conexion.getConnection();
-		String query = "insert into producto (NOMBRE_PRODUCTO, IVA_COMPRA, PRECIO_COMPRA, PRECIO_VENTA, NIT_PROVEEDOR)"
+		String query = "insert into PRODUCTO(NOMBRE_PRODUCTO, IVA_COMPRA, PRECIO_COMPRA, PRECIO_VENTA, NIT_PROVEEDOR)"
 				+ "value (?, ?, ?, ?, ?)";
 		int resultado = -1;
 		boolean guardado = false;
-		
 		
 		try {
 			PreparedStatement pstp = conn.prepareStatement(query);
@@ -46,7 +45,7 @@ public class ProductoDAO {
 	
 	public List< ProductoVO > traerTodos(){
 		Conexion conexion = new Conexion();
-		String query = "select * from producto ";
+		String query = "select * from PRODUCTO ";
 		
 		ProductoVO productoTemp ;
 		List<ProductoVO> listaProductos = new ArrayList<ProductoVO>();
@@ -81,7 +80,7 @@ public class ProductoDAO {
 	public List<ProductoVO> buscar (Long CODIGO_PRODUCTO){
 		ProductoVO productoTemp = null;
 		List<ProductoVO> productos = new ArrayList<ProductoVO>();
-		String query = "select * from producto where CODIGO_PRODUCTO = ?";
+		String query = "select * from PRODUCTO where CODIGO_PRODUCTO = ?";
 		Conexion conexion = new Conexion();
 		try {
 			Connection conn = conexion.getConnection();
@@ -105,14 +104,14 @@ public class ProductoDAO {
 			}
 			
 		}catch (Exception e) {
-			System.out.println("no fue posible buscar al proveedor" +e);
+			System.out.println("no fue posible buscar el producto" +e);
 		}
 		return productos;
 	}
 	
 	
-	public boolean eliminar(long nit) {
-		String query = "delete from proveedor where nit_proveedor = ?";
+	public boolean eliminar(long CODIGO_PRODUCTO) {
+		String query = "delete from PRODUCTO where CODIGO_PRODUCTO = ?";
 		int respuesta = 0;
 		boolean eliminado = false;
 		Conexion conexion = new Conexion();
@@ -120,13 +119,13 @@ public class ProductoDAO {
 		try {
 			Connection conn = conexion.getConnection();
 			PreparedStatement pstmt = conn.prepareStatement(query);
-			pstmt.setLong(1, nit);
+			pstmt.setLong(1, CODIGO_PRODUCTO);
 			respuesta = pstmt.executeUpdate();
 			if (respuesta > 0) {
 				eliminado = true;
 			}
 		}catch (Exception e) {
-			System.out.println("no se logro eliminar al proveedor"+e);
+			System.out.println("no se logro eliminar el producto "+e);
 		}finally {
 			
 			try {
@@ -139,12 +138,12 @@ public class ProductoDAO {
 	
 	
 	public boolean actualizar (ProductoVO producto) {
-		String query = "update proveedor"
+		String query = "update PRODUCTO"
 				+ "set nombre_producto = ?, "
 				+"precio_compra = ?, "
 				+"iva_compra = ?, "
 				+"precio_venta = ?, "
-				+"where nit_proveedor = ?, ";
+				+"where CODIGO_PRODUCTO = ?, ";
 		int resultado = 0;
 		Conexion conexion = new Conexion();
 		boolean actualizado = false;

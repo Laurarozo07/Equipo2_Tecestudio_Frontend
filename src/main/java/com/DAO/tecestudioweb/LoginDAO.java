@@ -21,7 +21,7 @@ public class LoginDAO {
 		 ArrayList<LoginVO> miusuario = new ArrayList<LoginVO>();//Crea el objeto arryList
 		 Conexion conex= new Conexion();
 		 try {
-		 String cadenaSQL="SELECT * FROM usuario where usuario =? and password=?";
+		 String cadenaSQL="SELECT * FROM USUARIO where usuario =? and password=?";
 		 PreparedStatement consulta =
 		conex.getConnection().prepareStatement(cadenaSQL);
 

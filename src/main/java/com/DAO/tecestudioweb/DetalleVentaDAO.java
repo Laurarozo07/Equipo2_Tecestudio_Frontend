@@ -11,7 +11,7 @@ public class DetalleVentaDAO {
 		int resultado = -1;
 		boolean guardado = false;
 		Conexion conexion = new Conexion();
-		String query = "insert into detalle_venta(CANTIDAD_PRODCUTO, " + 
+		String query = "insert into DETALLE_VENTA(CANTIDAD_PRODCUTO, " + 
 						"CODIGO_PRODUCTO, " + 
 						"CODIGO_VENTA, " + 
 						"VALOR_TOTAL, " + 

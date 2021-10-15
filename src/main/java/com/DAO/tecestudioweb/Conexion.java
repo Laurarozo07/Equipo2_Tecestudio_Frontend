@@ -6,11 +6,11 @@ public class Conexion {
 	
 	/**Parametros de conexion*/
 
-	static String bd = "mydb";
-	 static String login = "root";
+	static String bd = "grupo16_equipo2";
+	 static String login = "admin";
 	 //static String password = "admin";
-	 static String password = "root";
-	 static String url = "jdbc:mysql://localhost/"+bd;
+	 static String password = "tiendagenericamaoe2";
+	 static String url = "jdbc:mysql://tiendagenericamaoe2.czo3ixoe3xoe.us-east-1.rds.amazonaws.com/"+bd;
 	 Connection connection = null;
 	 /** Constructor de DbConnection */
 	 public Conexion() {
