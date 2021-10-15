@@ -16,7 +16,7 @@ public class ProveedorDAO {
 	
 	public List< ProveedorVO > traerTodos(){
 		Conexion conexion = new Conexion();
-		String query = "select * from proveedor";
+		String query = "select * from PROVEEDOR";
 		 
 		ProveedorVO proveedorTemp ;
 		List<ProveedorVO> listaProveedores = new ArrayList<ProveedorVO>();
@@ -54,7 +54,7 @@ public class ProveedorDAO {
 	//-------------------- metodo guardar -----------------------------------
 		public boolean guardar(ProveedorVO proveedor ){
 			Conexion conexion = new Conexion();
-			String query = "insert into proveedor(nit_proveedor, nom_proveedor, email_proveedor, ciudad_proveedor, direc_proveedor, tel_proveedor\r\n"
+			String query = "insert into PROVEEDOR(nit_proveedor, nom_proveedor, email_proveedor, ciudad_proveedor, direc_proveedor, tel_proveedor\r\n"
 					+ ") value(?, ?, ?, ?, ?, ?)" ;
 			boolean guardado = false ;
 			// recibe la cantidad de lineas afectadas en la base de datos
@@ -90,7 +90,7 @@ public class ProveedorDAO {
 		public List<ProveedorVO> buscar (Long nit_Proveedor){
 			ProveedorVO proveedorTemp = null;
 			List<ProveedorVO> proveedores = new ArrayList<ProveedorVO>();
-			String query = "select * from proveedor where nit_proveedor = ?";
+			String query = "select * from PROVEEDOR where NIT_PROVEEDOR = ?";
 			Conexion conexion = new Conexion();
 			try {
 				Connection conn = conexion.getConnection();
@@ -123,7 +123,7 @@ public class ProveedorDAO {
 		
 	//-------------------- motodo eliminar ----------------------------------
 		public boolean eliminar(long nit) {
-			String query = "delete from proveedor where nit_proveedor = ?";
+			String query = "delete from PROVEEDOR where NIT_PROVEEDOR = ?";
 			int respuesta = 0;
 			boolean eliminado = false;
 			Conexion conexion = new Conexion();
@@ -138,7 +138,7 @@ public class ProveedorDAO {
 				}
 				
 			} catch (Exception e) {
-				System.out.println("no se logro eliminar al proveedor "+e);
+				System.out.println("no se logro eliminar el proveedor "+e);
 			}finally {
 				
 				try {
@@ -155,13 +155,13 @@ public class ProveedorDAO {
 		
 	//-------------------- motodo actualizar --------------------------------
 	public boolean actualizar(ProveedorVO proveedor ){
-		String query = "update proveedor "
-				+ "set nom_proveedor = ?, "
-				+ "email_proveedor = ?, "
-				+ "ciudad_proveedor = ?, "
-				+ "direc_Proveedor = ?, "
-				+ "tel_proveedor = ? "
-				+ "where nit_proveedor = ?";
+		String query = "update PROVEEDOR "
+				+ "set NOM_PROVEEDOR = ?, "
+				+ "EMAIL_PROVEEDOR = ?, "
+				+ "CIUDAD_PROVEEDOR = ?, "
+				+ "DIREC_PROVEEDOR = ?, "
+				+ "TEL_PROVEEDOR = ? "
+				+ "where NIT_PROVEEDOR = ?";
 		int resultado = 0;
 		Conexion conexion = new Conexion();
 		boolean actualizado = false;

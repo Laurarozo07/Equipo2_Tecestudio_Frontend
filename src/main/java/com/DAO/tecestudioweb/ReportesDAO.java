@@ -15,14 +15,14 @@ public class ReportesDAO {
 		ReportesVO reporteTemp ;
 		Conexion conexion = new Conexion();
 		String query ="select v.CODIGO_VENTA, c.NOM_CLIENTE, c.APE_CLIENTE, \r\n"
-				+ "dv.CODIGO_PRODUCTO,dv.CANTIDAD_PRODCUTO, p.NOMBRE_PRODUCTO ,pv.NOM_PROVEEDOR, dv.valor_total,\r\n"
-				+ "dv.valor_venta, dv.valor_iva from\r\n"
-				+ "	(select CODIGO_VENTA, ID_CLIENTE from ventas ) v,\r\n"
-				+ "    (select * from detalle_venta) dv ,\r\n"
-				+ "    (select ID_CLIENTE, NOM_CLIENTE, APE_CLIENTE from cliente where DOC_CLIENTE=?) c,\r\n"
-				+ "    (select CODIGO_PRODUCTO, NOMBRE_PRODUCTO, NIT_PROVEEDOR from producto) p,\r\n"
-				+ "    (select NIT_PROVEEDOR, NOM_PROVEEDOR from proveedor) pv\r\n"
-				+ "WHERE v.id_cliente = c.id_cliente and v.CODIGO_VENTA = dv.CODIGO_VENTA \r\n"
+				+ "dv.CODIGO_PRODUCTO,dv.CANTIDAD_PRODCUTO, p.NOMBRE_PRODUCTO ,pv.NOM_PROVEEDOR, dv.VALOR_TOTAL,\r\n"
+				+ "dv.VALOR_VENTA, dv.VALOR_IVA from\r\n"
+				+ "	(select CODIGO_VENTA, ID_CLIENTE from VENTAS ) v,\r\n"
+				+ "    (select * from DETALLE_VENTA) dv ,\r\n"
+				+ "    (select ID_CLIENTE, NOM_CLIENTE, APE_CLIENTE from CLIENTE where DOC_CLIENTE=?) c,\r\n"
+				+ "    (select CODIGO_PRODUCTO, NOMBRE_PRODUCTO, NIT_PROVEEDOR from PRODUCTO) p,\r\n"
+				+ "    (select NIT_PROVEEDOR, NOM_PROVEEDOR from PROVEEDOR) pv\r\n"
+				+ "WHERE v.ID_CLIENTE = c.ID_CLIENTE and v.CODIGO_VENTA = dv.CODIGO_VENTA \r\n"
 				+ "and p.CODIGO_PRODUCTO = dv.CODIGO_PRODUCTO and pv.NIT_PROVEEDOR = p.NIT_PROVEEDOR;";
 		try {
 			Connection conn = conexion.getConnection();
