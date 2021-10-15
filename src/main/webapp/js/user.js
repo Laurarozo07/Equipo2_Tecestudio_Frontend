@@ -1,10 +1,10 @@
-const URL_PUERTO = "http://localhost:5000"
+const URL_PUERTO = "http://localhost:8080"
 
 $(document).ready(function () {
 
 	$("#btn_test").click(function () {
 		let test = document.getElementById("inp_test").value;
-		$.post("http://localhost:5000/test", { text: test }, function (data, status) {
+		$.post("http://localhost:8080/test", { text: test }, function (data, status) {
 			$("#mensaje").html("test ok " + data.respuesta);
 		});
 

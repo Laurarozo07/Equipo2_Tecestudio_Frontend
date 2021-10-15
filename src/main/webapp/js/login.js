@@ -12,7 +12,7 @@ $(document).ready(function () {
         }else if(elUsuario == "" ){
             alert(" el usuario esta vacio");
         }else{
-            $.post("http://localhost:5000/loginusuario2", {
+            $.post("http://localhost:8080/loginusuario2", {
                 usuario: elUsuario, password: laClave
             },
                 function (data, status) {
