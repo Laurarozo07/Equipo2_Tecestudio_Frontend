@@ -17,7 +17,7 @@ public class UsuarioDAO {
 
 	// ---------------- metodo buscar todos ---------------------------
 	public List<UsuarioVO> traerTodos() {
-		String query = "select * from usuario";
+		String query = "select * from USUARIO";
 		List<UsuarioVO> listaUsuarios = new ArrayList<UsuarioVO>();
 		Conexion conn = new Conexion();
 		UsuarioVO usuarioTemp;
@@ -63,7 +63,7 @@ public class UsuarioDAO {
 
 	public boolean guardar(String nom_usuario, String email_usuario, String usuario, String password,String doc_usuario){
 
-		String query = "insert into usuario(nom_usuario, email_usuario, usuario, password,doc_usuario) value (?,?,?,?,?)";
+		String query = "insert into USUARIO(nom_usuario, email_usuario, usuario, password,doc_usuario) value (?,?,?,?,?)";
 		boolean guardado = false;
 		int respuestadb = 0;
 
@@ -93,7 +93,7 @@ public class UsuarioDAO {
 
 	// -----------------metodo buscar--------------------------------------------
 	public List<UsuarioVO> buscar(String doc_usuario) {
-		String query = "select * from usuario where doc_usuario = ?";
+		String query = "select * from USUARIO where DOC_USUARIO = ?";
 		List<UsuarioVO> listaUsuarios = new ArrayList<UsuarioVO>();
 		Conexion conexion = new Conexion();
 		UsuarioVO usuarioTemp;
@@ -141,7 +141,7 @@ public class UsuarioDAO {
 
 	public boolean eliminar(String documento) {
 
-		String query = "delete from usuario where DOC_USUARIO = ?";
+		String query = "delete from USUARIO where DOC_USUARIO = ?";
 		boolean eliminado = false;
 		int resultado = 0;
 
@@ -167,7 +167,7 @@ public class UsuarioDAO {
 
 	public boolean actualizar(String doc_usuario, String nom_usuario, String email_usuario, String usuario, String password) {
 
-		String query = "UPDATE usuario SET nom_usuario = ?, email_usuario = ?, usuario = ?, password = ? WHERE doc_usuario = ?";
+		String query = "UPDATE USUARIO SET NOM_USUARIO = ?, EMAIL_USUARIO = ?, USUARIO = ?, PASSWORD = ? WHERE DOC_USUARIO = ?";
 
 		boolean actualizado = false;
 		int resultado = 0;
@@ -190,7 +190,7 @@ public class UsuarioDAO {
 			}
 
 		} catch (Exception e) {
-			System.out.println("no se pudo actualizar "+ e);
+			System.out.println("no se pudo actualizar el usuario "+ e);
 		}
 
 		return actualizado;

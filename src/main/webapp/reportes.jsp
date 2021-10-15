@@ -28,7 +28,10 @@ src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	    <br>
 	    <button id="btn_listac" type="button" value="clientes" >Listado De Clientes</button>
 	    <br>
+	    <button id="btn_produc" type="button" value="productos">Listado De Productos</button>
+	    <br>
 	    <button id="btn_ventasc" type="button" value="ventas" >Ventas Por Cliente</button>
+	    
     </form>    
 </section>
 <section id="moduloVentas" >
