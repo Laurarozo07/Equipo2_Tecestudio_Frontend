@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.Map;
 import org.springframework.boot.json.GsonJsonParser;
 import org.springframework.boot.json.JsonParser;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.DAO.*;
@@ -14,6 +15,7 @@ import com.DTO.tecestudioweb.*;
 import com.fasterxml.jackson.databind.JsonNode;
 
 @RestController
+@CrossOrigin(origins ={"http://localhost:8080","http://18.212.90.18"})
 public class LoginController {
 	
 	private LoginDAO loginService=new LoginDAO(); //cargamos el objeto y se pasa al DAO y valida el usuario

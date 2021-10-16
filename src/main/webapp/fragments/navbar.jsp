@@ -5,15 +5,18 @@
 </head>
 <body>
 	<section>
-		<div><h1><a href="menu.jsp"><img alt="20px" src="image/apple-touch-icon-76x76.png"></a>TecEstudio</h1></div>
-		<nav>
+		<nav id="menu">
 			<div>
-				<a href="user.jsp">Usuarios</a> 
-				<a href="clientes.jsp">Clientes</a> 
-				<a href="proveedores.jsp">Proveedores</a> 
-				<a href="Productos.jsp" >Productos</a>
-				<a href="ventas.jsp">Ventas</a>
-				<a href="reportes.jsp">Reportes </a>
+				<ul>
+				<li><a href="menu.jsp"><img alt="20px" src="image/apple-touch-icon-76x76.png"></a></li>
+				<li><h1>TecEstudio</h1></li>
+				<li><a href="user.jsp">Usuarios</a></li>
+				<li><a href="clientes.jsp">Clientes</a></li>
+				<li><a href="proveedores.jsp">Proveedores</a></li>
+				<li><a href="Productos.jsp" >Productos</a></li>
+				<li><a href="ventas.jsp">Ventas</a></li>
+				<li><a href="reportes.jsp">Reportes </a></li> 
+				</ul>
 			</div>
 		</nav>
 </section>

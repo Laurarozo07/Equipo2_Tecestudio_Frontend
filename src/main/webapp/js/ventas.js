@@ -243,11 +243,11 @@ $(document).ready(function () {
     //-------------- class -----------------------------
     class Venta {
 
-        static id_cliente = -1
-        static id_user = -1
-        static iva_venta = -1
-        static total_venta = -1
-        static valor_venta = -1
+        static id_cliente = -1;
+        static id_user = -1;
+        static iva_venta = -1;
+        static total_venta = -1;
+        static valor_venta = -1;
     };
     class DetalleVenta {
 
@@ -258,6 +258,6 @@ $(document).ready(function () {
         valor_venta = -1;
         valor_iva = -1;
 
-    }
+    };
 
 });

@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,6 +15,7 @@ import com.DAO.tecestudioweb.ProductoDAO;
 import com.DTO.tecestudioweb.ProductoVO;
 
 @RestController
+@CrossOrigin(origins ={"http://localhost:8080","http://18.212.90.18"})
 public class ProductoController {
  
 	ProductoDAO productoService = new ProductoDAO();

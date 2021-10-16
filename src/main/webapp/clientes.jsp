@@ -11,7 +11,8 @@
 <link rel="icon" type="image/png" href="image/favicon-16x16.png" sizes="16x16" />
 <link rel="icon" type="image/png" href="image/favicon-128.png" sizes="128x128" />
 
-<link href="css/main.css" rel="stylesheet" type="text/css">
+<link href="css/styleform.css" rel="stylesheet" type="text/css">
+<link href="css/menu.css" rel="stylesheet" type="text/css">
 <script
 src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>

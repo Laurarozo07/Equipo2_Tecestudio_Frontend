@@ -5,7 +5,9 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Menu</title>
-<link href="css/main.css" rel="stylesheet" type="text/css">
+
+<link href="css/styleform.css" rel="stylesheet" type="text/css">
+<link href="css/menu.css" rel="stylesheet" type="text/css">
 
 <link rel="icon" type="image/png" href="image/favicon-196x196.png" sizes="196x196" />
 <link rel="icon" type="image/png" href="image/favicon-96x96.png" sizes="96x96" />

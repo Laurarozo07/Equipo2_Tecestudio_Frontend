@@ -12,7 +12,9 @@
 <link rel="icon" type="image/png" href="image/favicon-16x16.png" sizes="16x16" />
 <link rel="icon" type="image/png" href="image/favicon-128.png" sizes="128x128" />
 
-<link href="css/main.css" rel="stylesheet" type="text/css">
+<link href="css/styleform.css" rel="stylesheet" type="text/css">
+<link href="css/menu.css" rel="stylesheet" type="text/css">
+
 <script
 src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
@@ -22,22 +24,23 @@ src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <header>
 	<%@ include file="fragments/navbar.jsp"%>
 </header>
-<section>
-  <form >
+<section class="container">
+  <form class="row" >
      <div>
-         <input id="archivoInput" type="file" onchange="return validarExt()"> 
+         <input id="archivoInput" class="input" type="file" onchange="return validarExt()"> 
          <br/>
        <!--  <input type="submit" value="Cargar"> -->
        <div id="visorArchivo">
        
      </div>
+     </div>
     </form>
 </section>
 <section>
   
-       </div>
+       
 
-       <div id="tableResult">
+       <div id="tableResult"></div>
 </section >
  
 <section id="modulo_confirmar" >
