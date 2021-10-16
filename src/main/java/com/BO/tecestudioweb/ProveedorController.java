@@ -17,7 +17,6 @@ import com.DTO.tecestudioweb.ProveedorVO;
 
 
 @RestController
-@CrossOrigin(origins ={"http://localhost:8080","http://18.212.90.18"})
 public class ProveedorController {
 
 	private ProveedorDAO proveedorService = new ProveedorDAO();

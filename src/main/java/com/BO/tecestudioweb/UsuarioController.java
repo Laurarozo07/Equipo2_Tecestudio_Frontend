@@ -24,7 +24,6 @@ import java.util.List;
  *
  */
 @RestController
-@CrossOrigin(origins ={"http://localhost:8080","http://18.212.90.18"})
 public class UsuarioController {
 	
 	private UsuarioDAO usuarioService = new UsuarioDAO();

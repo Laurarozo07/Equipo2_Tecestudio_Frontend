@@ -15,7 +15,6 @@ import com.DTO.tecestudioweb.*;
 import com.fasterxml.jackson.databind.JsonNode;
 
 @RestController
-@CrossOrigin(origins ={"http://localhost:8080","http://18.212.90.18"})
 public class LoginController {
 	
 	private LoginDAO loginService=new LoginDAO(); //cargamos el objeto y se pasa al DAO y valida el usuario
@@ -37,7 +36,6 @@ public class LoginController {
 	 return Collections.singletonMap("existe", true);
 	 
 	 }
-
 
 	}
 	

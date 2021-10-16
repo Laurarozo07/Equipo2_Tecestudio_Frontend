@@ -13,7 +13,6 @@ import com.DAO.tecestudioweb.ReportesDAO;
 import com.DTO.tecestudioweb.ReportesVO;
 
 @RestController
-@CrossOrigin(origins ={"http://localhost:8080","http://18.212.90.18"})
 public class ReportesController {
 	
 	
