@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.DAO.tecestudioweb.ClienteDAO;
 import com.DTO.tecestudioweb.ClienteVO;
 
-//@CrossOrigin(origins ={"http://localhost:8080","http://18.212.90.18"})
+@CrossOrigin(origins ={"http://localhost:8080","http://18.212.90.18"})
 @RestController
 public class ClienteController {
 

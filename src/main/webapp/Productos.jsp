@@ -149,7 +149,7 @@ src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   function guardarProducto(nProducto,pCompra, ivaCompra, pVenta,nit ){
     return new Promise((resolve, reject) => {
       
-      $.get("http://localhost:8080",{ nombre_producto: nProducto, 
+      $.get("http://18.212.90.18:8080/tecestudioweb-0.0.1-SNAPSHOT",{ nombre_producto: nProducto, 
       precio_compra: pCompra, iva_compra: ivaCompra, precio_venta: pVenta,
 			nit_proveedor: nit},function(data, status){
         console.log(data.guardado);

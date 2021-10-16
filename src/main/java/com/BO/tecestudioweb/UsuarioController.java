@@ -23,6 +23,7 @@ import java.util.List;
  * 
  *
  */
+@CrossOrigin(origins ={"http://localhost:8080","http://18.212.90.18"})
 @RestController
 public class UsuarioController {
 	

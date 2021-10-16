@@ -12,7 +12,7 @@ $(document).ready(function () {
         }else if(elUsuario == "" ){
             alert(" el usuario esta vacio");
         }else{
-            $.post("http://localhost:8080/loginusuario2", {
+            $.post("http://18.212.90.18:8080/tecestudioweb-0.0.1-SNAPSHOT/loginusuario2", {
                 usuario: elUsuario, password: laClave
             },
                 function (data, status) {

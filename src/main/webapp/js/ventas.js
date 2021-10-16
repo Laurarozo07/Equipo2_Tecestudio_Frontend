@@ -2,7 +2,7 @@
  * Se encarga de enviar la informacion de la venta al backEnd de la aplicacion 
  */
 
-const URL_PUERTO = "http://localhost:8080"
+const URL_PUERTO = "http://18.212.90.18:8080/tecestudioweb-0.0.1-SNAPSHOT"
 
 $(document).ready(function () {
     $("#btn_confirmar").hide();

@@ -2,7 +2,7 @@
  * 
  */
 
-const URL_PUERTO = 'http://localhost:8080'
+const URL_PUERTO = 'http://18.212.90.18:8080/tecestudioweb-0.0.1-SNAPSHOT'
 $(document).ready(function () {
 
 $.ajax({

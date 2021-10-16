@@ -14,6 +14,7 @@ import com.DAO.tecestudioweb.*;
 import com.DTO.tecestudioweb.*;
 import com.fasterxml.jackson.databind.JsonNode;
 
+@CrossOrigin(origins ={"http://localhost:8080","http://18.212.90.18"})
 @RestController
 public class LoginController {
 	

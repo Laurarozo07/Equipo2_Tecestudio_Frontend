@@ -10,13 +10,13 @@ public class Conexion {
 	 static String login = "admin";
 	 //static String password = "admin";
 	 static String password = "tiendagenericamaoe2";
-	 static String url = "jdbc:mysql://tiendagenericamaoe2.czo3ixoe3xoe.us-east-1.rds.amazonaws.com/"+bd;
+	 static String url = "jdbc:mariadb://tiendagenericamaoe2.czo3ixoe3xoe.us-east-1.rds.amazonaws.com/"+bd;
 	 Connection connection = null;
 	 /** Constructor de DbConnection */
 	 public Conexion() {
 	 try{
 	 //obtenemos el driver de para mysql
-	 Class.forName("com.mysql.cj.jdbc.Driver");
+	 Class.forName("org.mariadb.jdbc.Driver");
 
 
 	 //obtenemos la conexión

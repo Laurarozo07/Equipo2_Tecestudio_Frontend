@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.DAO.tecestudioweb.ProductoDAO;
 import com.DTO.tecestudioweb.ProductoVO;
 
-
+@CrossOrigin(origins ={"http://localhost:8080","http://18.212.90.18"})
 @RestController
 public class ProductoController {
  
