@@ -25,27 +25,21 @@ src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<%@ include file="fragments/navbar.jsp"%>
 </header>
 <section class="container">
-  <form class="row" >
-     <div>
+  <form  >
+     <div >
          <input id="archivoInput" class="input" type="file" onchange="return validarExt()"> 
          <br/>
        <!--  <input type="submit" value="Cargar"> -->
-       <div id="visorArchivo">
-       
-     </div>
+      <section id="modulo_confirmar" >
+   <input id="confirmar" type="button" value="Confirmar">
+</section>
      </div>
     </form>
 </section>
-<section>
-  
-       
-
+<section class="result">
        <div id="tableResult"></div>
 </section >
  
-<section id="modulo_confirmar" >
-   <input id="confirmar" type="button" value="Confirmar">
-</section>
 <footer></footer>
 	
 	

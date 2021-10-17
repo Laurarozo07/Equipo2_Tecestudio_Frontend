@@ -68,7 +68,10 @@ src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       </section>
         
     </form>
-    <div id="mensaje"></div>
+    <section class="result">
+    	<div id="mensaje"></div>
+    </section>
+    
  </section>
  
  <footer></footer>   

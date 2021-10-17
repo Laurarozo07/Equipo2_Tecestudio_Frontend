@@ -51,14 +51,18 @@ src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	        <input id="inp_password" class="input" type="password" placeholder="Ingrese la contraseña">
 	    </div>   
 	    <br/>
+	      <section class="action_buttons" >
 	        <input id="buscarU" type="button" value="Consultar">
 	        <input id="agregarU" type="button" value="Crear">
 	        <input id="actualizarU" type="button" value="Actualizar">
 	        <input id="eliminarU" type="button" value="Borrar">
 	        <input id="listarU" type="button" value="Todos">
 	        <button type="reset" >Limpiar</button> 
-     
+     	  </section>
     	</form>
+    	<section>
+    		<div id="mensaje"></div>
+    	</section>
     </section>
     <div id="mensaje">
     </div>

@@ -67,15 +67,21 @@ src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		</div>
 		<br/>
 		<br/>
-        <input id="btn_buscar" type="button" value="Consultar">
-        <input id="btn_guardar" type="button" value="Crear">
-        <input id="btn_actualizar" type="button" value="Actualizar">
-        <input id="btn_eliminar" type="button" value="Borrar">
-        <input id="btn_listar" type="button" value="Todos">
-        <button type="reset">Limpiar</button>
+		<section class="action_buttons" >
+	        <input id="btn_buscar" type="button" value="Consultar">
+	        <input id="btn_guardar" type="button" value="Crear">
+	        <input id="btn_actualizar" type="button" value="Actualizar">
+	        <input id="btn_eliminar" type="button" value="Borrar">
+	        <input id="btn_listar" type="button" value="Todos">
+	        <button type="reset">Limpiar</button>
+	   	</section>
     </form>
+    <section>
+    	<div id="mensaje"></div>
+
+    </section>
 </section>
-	<div id="mensaje"></div>
+	
 
 </body>
 </html>
