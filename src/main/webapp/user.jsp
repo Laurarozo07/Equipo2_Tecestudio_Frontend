@@ -1,9 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>usuarios</title>
 
 <link rel="icon" type="image/png" href="image/favicon-196x196.png" sizes="196x196" />
@@ -24,24 +24,33 @@ src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<header>
 		<%@ include file="fragments/navbar.jsp"%>
 	</header>
-	<section>
+	<section class="container">
 	<form>
-	        <label for="inp_documento">Cedula</label>
-	        <input id="inp_documento" type="text" placeholder="Ingrese su cedula">
+		<div class="row">
+	        <label for="inp_documento" class="label">Cedula</label>
+	        <input id="inp_documento" class="input" type="text" placeholder="Ingrese su cedula">
+	    </div>
+		<br/>
+		<div class="row">
+	        <label for="inp_nombre" class="label">Nombre</label>
+	        <input id="inp_nombre" class="input" type="text" placeholder="Ingrese su nombre completo">
+	    </div>    
+		<br/>
+		<div class="row">
+	        <label for="inp_email" class="label">Correo</label>
+	       <input id="inp_email" class="input" type="text" placeholder="Ingrese su correo">
+	    </div>
+		<br/>
+		<div class="row">
+	        <label for="inp_usuario" class="label">Usuario</label>
+	        <input id="inp_usuario" class="input" type="text" placeholder="Ingrese el ususario">
+	    </div>
+		<br/>
+		<div class="row">
+	        <label for="inp_password" class="label">ContraseÃ±a</label>
+	        <input id="inp_password" class="input" type="password" placeholder="Ingrese la contraseÃ±a">
 	        <br/>
-	        <label for="inp_nombre">Nombre</label>
-	        <input id="inp_nombre" type="text" placeholder="Ingrese su nombre completo">
-	        <br/>
-	        <label for="inp_email">Correo</label>
-	       <input id="inp_email" type="text" placeholder="Ingrese su correo">
-	        <br/>
-	        <label for="inp_usuario">Usuario</label>
-	        <input id="inp_usuario" type="text" placeholder="Ingrese el ususario">
-	        <br/>
-	        <label for="inp_password">Contraseña</label>
-	        <input id="inp_password" type="password" placeholder="Ingrese la contraseña">
-	        <br/>
-	        
+	    </div>   
 	        <input id="buscarU" type="button" value="Consultar">
 	        <input id="agregarU" type="button" value="Crear">
 	        <input id="actualizarU" type="button" value="Actualizar">

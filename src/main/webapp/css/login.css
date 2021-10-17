@@ -13,13 +13,19 @@ h1{
     font-size: 22px;
     margin-bottom: 20px;
     text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Oswald', sans-serif;
     color: white;
+    border: 1px solid white;
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 12%;
+    position: relative;
+    left: 44%;
+    top: 22px;
+
 }
 body {
-    background-image: url(image/fondo.jpg);
+    background-image: url(../image/background/apple.jpeg);
     background-size: cover;
-    font-family: Arial, Helvetica, sans-serif;
     height: 100vh;
 }
 h2{
@@ -30,13 +36,13 @@ h2{
 form {
     margin: 0;
     width: 300px;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.5);
     color: #0927eb;
     padding: 30px;
     margin: auto;
     margin-top: 40qpx;
-    border-radius: 4px;
-    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 25px;
+    font-family: 'Oswald', sans-serif;
     
 }
 #usuario{
@@ -46,7 +52,6 @@ form {
     border-radius: 4px;
     margin-bottom: 16px;
     border: 1px solid #004aad;
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
 }
 #password{
@@ -56,16 +61,28 @@ form {
     border-radius: 4px;
     margin-bottom: 16px;
     border: 1px solid #004aad;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Oswald', sans-serif;
     font-size: 18px;
 }
 #btn_Enviaru{
-    width: 300%;
+    width: 200%;
     background: #004aad;
     border: none;
     padding: 12px;
     color: white;
     margin: 16px 0;
     font-size: 16px;
+    box-shadow: 3px 3px 3px black ;
+    position: relative;
+    left: 100%;
 
+}
+#btn_Enviaru:hover {
+    background-color: #0264e4;
+    box-shadow: -1px 0px 3px black ;
+    
+}
+#btn_Enviaru:focus{
+    background-color: #0264e4;
+    box-shadow: -2px -2px 3px black ;
 }

@@ -3,36 +3,34 @@
     padding: 0%;
 }
 body{
-    background-image: url('/img/fondo.jpg');
+    background: linear-gradient( rgba(5, 7, 12, 0.205),rgba(5,7,12, 0.75)), url('../image/background/fondo.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+body::before{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background:  #000;
+    top: 0;
+    right: 0;
 }
 form{
  background: transparent;
 
     
 }
-input{
-    float: left;
-    width: 80%;
-    padding: 12px;
-    border: 1px solid black;
-    border-radius: 4px;
-    resize: vertical;
-}
-label{
-    padding: 12px 6px 12px 0px;
-    display: inline-block;
 
-}
 .container{
     border-radius: 5px;
-    background-color: rgb(74, 74, 233) ;
+
     background-image: url(/img/fondo.jpg);
-    padding: 150px 450px;
    
 }
 .label{
     float: left;
-    width: 25%;
+    width: 10%;
     margin-top: 6px;
     text-align: center;
     background: transparent;
@@ -40,6 +38,8 @@ label{
 
 }
 .input{
+    position: relative;
+    left: 0;
     float: left;
     width: 75%;
     margin-top: 6px;
@@ -50,7 +50,7 @@ label{
     clear: both;
 
 }
-input[type=text],tel {
+/* input[type=text],tel {
     width: 100%;
     padding: 12px;
     border: 1px solid rgb(3, 3, 170);
@@ -68,8 +68,8 @@ input[type=button]{
     border-radius: 4px;
     cursor: pointer;
     margin-left: 35px;
-}
-button{
+} */
+button, input[type="button"]{
     background-color: darkblue;
     color: white;
     padding: 6px;
@@ -79,5 +79,4 @@ button{
     border-radius: 4px;
     cursor: pointer;
     margin-left: 35px;
-
 }
