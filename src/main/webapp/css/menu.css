@@ -9,33 +9,54 @@ body {
     height: 100vh;
 }
 #menu{
-    background-color: #0927eb;
+    background-image: linear-gradient(45deg, rgba(0, 0, 139, 0.911),  rgba(0, 200, 139, 0.911));
     width: 100%;
-    height: 120px;
+    height: 40px;
 }
-#menu > div> ul{
+#menu > nav > div> ul{
+    position: absolute;
+    top: 0;
     list-style: none;
     margin: 0;
     padding: 0;
 }
-#menu > div> ul > li{
+#menu > nav > div> ul > li{
+    position: absolute;
     padding: 0;
     float: left;
-    padding-right: 26px;
-   height: 30px;
-   top: 34px;
+    padding-left: 26px;
+   height: 25px;
+   top: 13px;
    position: relative;
 }
 
-#menu > div > ul > li > h1{
+#menu > nav > div > ul > li > h1{
     color: #eee;
+    font-family: 'Roboto', sans-serif;
 }
-#menu > div > ul > li > a{
-    color: white;
+#menu > nav > div > ul > li > a{
+    color: #fff;
+    
+    font-family: 'Roboto', sans-serif;
     text-decoration: none;
+    text-align: center;
     display: block;
+    padding-left: 7px;
+    padding-right: 7px;
     font-family: open+sans;
     font-size: 18px;
+}
+#menu > nav > div > ul > li > a:hover{
+    border-radius: 50px;
+    color: black;
+    background-color: #fff;
+}
+#menu > nav > div > ul > li > a > img {
+    position: absolute;
+    top: -15px;
+    left: 20px;
+    max-width: 100%;
+    padding-right: 25px;
 }
 .formulario{
     width: 320px;

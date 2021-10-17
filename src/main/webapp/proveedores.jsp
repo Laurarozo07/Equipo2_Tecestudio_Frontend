@@ -11,6 +11,8 @@
 <link rel="icon" type="image/png" href="image/favicon-96x96.png" sizes="96x96" />
 <link rel="icon" type="image/png" href="image/favicon-16x16.png" sizes="16x16" />
 <link rel="icon" type="image/png" href="image/favicon-128.png" sizes="128x128" />
+<link href="css/menu.css" rel="stylesheet" type="text/css">
+<link href="css/styleform.css" rel="stylesheet" type="text/css">
 
 <script
 src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -18,34 +20,53 @@ src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <script type="text/javascript" src="js/proveedores.js"></script>
 
-<link href="css/styleform.css" rel="stylesheet" type="text/css">
-<link href="css/menu.css" rel="stylesheet" type="text/css">
+
+
 
 </head>
 <body>
 <header>
 	<%@ include file="fragments/navbar.jsp"%>
 </header>
-<section>
-<form action="menu.html" method="post">
-        <label for="inp_nit">Nit</label>
-        <input id="inp_nit" type="text"  name="nit_prov" placeholder="Ingrese su Nit"> 
-        <br/>
-        <label for="nombre">Nombre</label>
-        <input id="inp_nom" type="text"  name="nombre_prov" placeholder="Ingrese su nombre completo">
-        <br/>
-        <label for="inp_email">email</label>
-        <input id="inp_email" type="email" name="email_prov" placeholder="Ingrese su correo">
-        <br/>
-        <label for="direccion">Direccion</label>
-        <input id="inp_dir" type="text" name="direccion_prov" placeholder="Ingrese su direccion">
-        <br/>
-        <label for="telefono">Telefono</label>
-        <input id="inp_tel" type="tel" name="tel_prov" placeholder="Ingrese su telefono">
-        <br/>
-        <label for="ciudad">Ciudad</label>
-        <input id="inp_ciud" type="text" name="ciudad_prov" placeholder="Ingrese su ciudad">
-        <br/>
+<section class="container">
+	<form>
+		<div id="row">
+			<label for="inp_nit" class="label">Nit</label>
+        	<input id="inp_nit" class="input" type="text"  name="nit_prov" placeholder="Ingrese su Nit"> 
+		</div>
+		<br/>
+		<br/>
+		<div id="row">
+			
+			<label for="inp_nom" class="label">Nombre</label>
+        	<input id="inp_nom" class="input" type="text"  name="nombre_prov" placeholder="Ingrese su nombre completo">
+		</div>
+		<br/>
+		<br/>
+		<div id="row">
+			<label for="inp_email" class="label">email</label>
+        	<input id="inp_email" class="input" type="email" name="email_prov" placeholder="Ingrese su correo">
+		</div>
+		<br/>
+		<br/>
+		<div id="row">
+			 <label for="inp_dir" class="label">Direccion</label>
+        	<input id="inp_dir" class="input" type="text" name="direccion_prov" placeholder="Ingrese su direccion">
+		</div>
+		<br/>
+		<br/>
+		<div id="row">
+			 <label for="inp_tel" class="label">Telefono</label>
+        	<input id="inp_tel" class="input" type="tel" name="tel_prov" placeholder="Ingrese su telefono">
+		</div>
+		<br/>
+		<br/>
+		<div id="row">
+			<label for="inp_ciud" class="label">Ciudad</label>
+       		<input id="inp_ciud" class="input" type="text" name="ciudad_prov" placeholder="Ingrese su ciudad">
+		</div>
+		<br/>
+		<br/>
         <input id="btn_buscar" type="button" value="Consultar">
         <input id="btn_guardar" type="button" value="Crear">
         <input id="btn_actualizar" type="button" value="Actualizar">
@@ -54,9 +75,7 @@ src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <button type="reset">Limpiar</button>
     </form>
 </section>
-<section>
 	<div id="mensaje"></div>
-</section>
 
 </body>
 </html>

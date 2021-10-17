@@ -2,10 +2,13 @@
 
 <html>
 <head>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
-	<section>
-		<nav id="menu">
+	<section id="menu">
+		<nav >
 			<div>
 				<ul>
 				<li><a href="menu.jsp"><img alt="20px" src="image/apple-touch-icon-76x76.png"></a></li>

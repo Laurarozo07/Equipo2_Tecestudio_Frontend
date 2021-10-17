@@ -49,8 +49,8 @@ src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<div class="row">
 	        <label for="inp_password" class="label">Contraseña</label>
 	        <input id="inp_password" class="input" type="password" placeholder="Ingrese la contraseña">
-	        <br/>
 	    </div>   
+	    <br/>
 	        <input id="buscarU" type="button" value="Consultar">
 	        <input id="agregarU" type="button" value="Crear">
 	        <input id="actualizarU" type="button" value="Actualizar">
