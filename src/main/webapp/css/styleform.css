@@ -67,8 +67,12 @@ form{
 
 }
 .action_buttons{
-    position: absolute;
+
     padding-top: 25px;
+}
+#mensaje{
+    position: relative;
+    bottom: 40px;
 }
 
 button, input[type="button"]{
@@ -89,6 +93,11 @@ button, input[type="button"]{
     background-color: rgba(0, 0, 0, 0.5);
     top: 100px;
 
+}
+table{
+    position: absolute;
+    top: 50px;
+    
 }
 
 table > thead > tr > th , table > tbody > tr > th {
