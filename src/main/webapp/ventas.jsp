@@ -31,7 +31,7 @@ src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<div id="id_user"></div>
     <div>
         <label for="inp_documento">Cedula</label>
-        <input id="inp_documento" type="text" name="cedula_cliente" placeholder="Ingrese su cedula" >
+        <input id="inp_documento" type="number" name="cedula_cliente" placeholder="Ingrese su cedula" >
         <input id="btn_consuCli"type="button" value="Consultar">
         <label for="cliente">Cliente</label>
         <input id="inp_nomCliente" type="text" name="nombre_cliente" disabled="disabled">

@@ -35,14 +35,14 @@ $(document).ready(function () {
 
             $.get(URL_PUERTO + "/clienteBuscar", { doc_usuario: docCliente }, function (data, status) {
 
-
-                console.log(data.respuesta);
-                let idCliente = data.respuesta[0].id_cliente;
-                Venta.id_cliente = idCliente;
-                console.log(Venta.id_cliente + " || " + Venta.id_user);
-                $("#inp_nomCliente").val(data.respuesta[0].ape_cliente + " " + data.respuesta[0].nom_cliente);
-
-
+                if(data.respuesta === undefined || data.respuesta === null){
+                    alert("El usuario con documento :"+docCliente+" no se encuentra registrado ");
+                }else{
+                    let idCliente = data.respuesta[0].id_cliente;
+                    Venta.id_cliente = idCliente;
+                    $("#inp_nomCliente").val(data.respuesta[0].ape_cliente + " " + data.respuesta[0].nom_cliente);
+                };
+                
             });
 
         };
@@ -56,11 +56,18 @@ $(document).ready(function () {
         if (codigo == "" || codigo == " ") {
             alert("El codigo del producto esta vacio");
         } else {
-            traerProduto(codigo).then((listaProduto) => {
-                $("#nomProd1").val(listaProduto.nombre_producto);
-                $("#valorT1").val(listaProduto.precio_venta);
-                console.log(listaProduto);
+            traerProduto(codigo).then((listaProducto) => {
 
+                if(listaProducto == null){
+                    alert("no existe producto con codigo #"+codigo);
+                }else{
+                    $("#nomProd1").val(listaProducto.nombre_producto);
+                $("#valorT1").val(listaProducto.precio_venta);
+                console.log(listaProducto);
+
+                };
+                
+                
             });
         }
 
@@ -72,11 +79,17 @@ $(document).ready(function () {
         if (codigo == "" || codigo == " ") {
             alert("El codigo del producto esta vacio");
         } else {
-            traerProduto(codigo).then((listaProduto) => {
-                $("#nomProd2").val(listaProduto.nombre_producto);
-                $("#valorT2").val(listaProduto.precio_venta);
-                console.log(listaProduto);
+            traerProduto(codigo).then((listaProducto) => {
 
+                if(listaProducto == null){
+                    alert("no existe producto con codigo #"+codigo);
+                }else{
+                    $("#nomProd1").val(listaProducto.nombre_producto);
+                $("#valorT1").val(listaProducto.precio_venta);
+                console.log(listaProducto);
+
+                };
+                
             });
         }
 
@@ -89,11 +102,16 @@ $(document).ready(function () {
         if (codigo == "" || codigo == " ") {
             alert("El codigo del producto esta vacio");
         } else {
-            traerProduto(codigo).then((listaProduto) => {
-                $("#nomProd3").val(listaProduto.nombre_producto);
-                $("#valorT3").val(listaProduto.precio_venta);
-                console.log(listaProduto);
+            traerProduto(codigo).then((listaProducto) => {
 
+                if(listaProducto == null){
+                    alert("no existe producto con codigo #"+codigo);
+                }else{
+                    $("#nomProd1").val(listaProducto.nombre_producto);
+                $("#valorT1").val(listaProducto.precio_venta);
+                console.log(listaProducto);
+                };
+                 
             });
         }
 
@@ -102,7 +120,7 @@ $(document).ready(function () {
     $("#btn_calcular").click(() => {
         let datosCompletos = false;
         for (var i = 0; i < 3; i++) {
-            if ($("#inp_codigo" + (i + 1)).val() != "" && $("#inp_cant" + (i + 1)).val() != "" && $("#inp_nomCliente").val() != "") {
+            if ($("#inp_codigo" + (i + 1)).val() != "" && $("#nomProd"+( i + 1 )).val() != ""  && $("#inp_cant" + (i + 1)).val() > 0 && $("#inp_nomCliente").val() != "") {
                 datosCompletos = true;
             };
         };
@@ -212,7 +230,12 @@ $(document).ready(function () {
         return new Promise((resolve, reject) => {
             $.get(URL_PUERTO + "/productoBuscar", { CODIGO_PRODUCTO: codigo }, function (data, status) {
                 let listaDatos = data.respuesta;
-                resolve(listaDatos[0]);
+                if(listaDatos == null) {
+                    resolve(null);
+                }else{
+                    resolve(listaDatos[0]);
+                };
+               
             });
         });
     };
