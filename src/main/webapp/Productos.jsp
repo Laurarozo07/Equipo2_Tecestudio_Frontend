@@ -53,11 +53,16 @@ src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     $("#confirmar").hide();
     console.log(listProduct);
     const lista = listProduct[0];
+    let guardados = 0;
     for (let i = 0; i < lista.length; i=i+5) {
        console.log( lista[i] + lista[i+1] + lista[i+2] + lista[i+3] + lista[i+4])
-        guardarProducto(lista[i],lista[i+1], lista[i+2], lista[i+3],lista[i+4] );
-    }
-     
+        guardarProducto(lista[i],lista[i+1], lista[i+2], lista[i+3],lista[i+4] ).then((guardado) => {
+        	console.log(guardado);
+          if(guardado == true && i==0){
+        		alert("se ha guardado los productos ");
+        	};
+        });
+    };
  });
 	function validarExt(){
 		var archivoInput = document.getElementById('archivoInput');
@@ -143,11 +148,12 @@ src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   function guardarProducto(nProducto,pCompra, ivaCompra, pVenta,nit ){
     return new Promise((resolve, reject) => {
       
-      $.get("http://18.212.90.18:8080/tecestudioweb-0.0.1-SNAPSHOT",{ nombre_producto: nProducto, 
+      $.get("http://18.212.90.18:8080/tecestudioweb-0.0.1-SNAPSHOT/productoGuardar",{ nombre_producto: nProducto, 
       precio_compra: pCompra, iva_compra: ivaCompra, precio_venta: pVenta,
 			nit_proveedor: nit},function(data, status){
+        let stored = data.guardado;
         console.log(data.guardado);
-        resolve(data.guardado);
+        resolve(stored);
       });
 
     });
