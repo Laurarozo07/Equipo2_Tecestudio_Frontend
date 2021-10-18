@@ -94,6 +94,14 @@ button, input[type="button"]{
     top: 100px;
 
 }
+.result {
+    position: relative;
+    width: 100%;
+    top: 100px;
+
+    color:rgb(255, 255, 255);
+
+}
 table{
     position: absolute;
     top: 50px;

@@ -76,7 +76,7 @@ src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	        <button type="reset">Limpiar</button>
 	   	</section>
     </form>
-    <section>
+    <section class="result">
     	<div id="mensaje"></div>
 
     </section>
