@@ -61,6 +61,9 @@ src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
           if(guardado == true && i==0){
         		alert("se ha guardado los productos ");
         	};
+          if(guardado == false){
+        	alert("no se ha podido guardar el producto #"+i);
+          };
         });
     };
  });
