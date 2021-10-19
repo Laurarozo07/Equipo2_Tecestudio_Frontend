@@ -84,8 +84,8 @@ $(document).ready(function () {
                 if(listaProducto == null){
                     alert("no existe producto con codigo #"+codigo);
                 }else{
-                    $("#nomProd1").val(listaProducto.nombre_producto);
-                $("#valorT1").val(listaProducto.precio_venta);
+                    $("#nomProd2").val(listaProducto.nombre_producto);
+                $("#valorT2").val(listaProducto.precio_venta);
                 console.log(listaProducto);
 
                 };
@@ -107,8 +107,8 @@ $(document).ready(function () {
                 if(listaProducto == null){
                     alert("no existe producto con codigo #"+codigo);
                 }else{
-                    $("#nomProd1").val(listaProducto.nombre_producto);
-                $("#valorT1").val(listaProducto.precio_venta);
+                    $("#nomProd3").val(listaProducto.nombre_producto);
+                $("#valorT3").val(listaProducto.precio_venta);
                 console.log(listaProducto);
                 };
                  
